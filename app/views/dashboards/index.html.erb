@@ -1,0 +1,31 @@
+
+
+<% if user_signed_in? %>
+  <div class="container">
+  <h4>You are logged in as <%= current_user.email %></h4>
+  </div>
+
+  <ul class="nav nav-pills nav-stacked" style="max-width: 250px;">
+    <li class="active">
+      <a href="#">Appointments</a>
+    </li>
+    <li>
+      <a href="#">Book Appointment</a>
+    </li>
+    <li>
+      <%= link_to "Patient Records", patients_path %> 
+    </li>
+    <li>
+      <a href="#">Prescription Generator</a>
+    </li>
+    <li>
+      <a href="#">Phonebook</a>
+    </li>
+  </ul>
+<% else %>
+  <div class="jumbotron">
+    <h1>Hello, world!</h1>
+    <p>...</p>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-primary btn-lg", role: "button"%>
+  </div>
+<% end %>
