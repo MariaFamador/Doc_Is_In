@@ -11,8 +11,8 @@
         <td><%= @patient.first_name %></td>
       </tr>
       <tr>
-        <td>Start Date</td>
-        <td><%= @patient.created_at.strftime("%Y %B %d") %></td>
+        <td>Gender</td>
+        <td><%= @patient.gender %></td>
       </tr>
       <tr>
         <td>Age</td>
@@ -20,7 +20,7 @@
       </tr>
       <tr>
         <td>Date of Birth</td>
-        <td><%= @patient.dob.strftime("%Y %B %d") %></td>
+        <td><%= @patient.dob.strftime("%d %B %Y") %></td>
       </tr>
        <tr>
         <td>Address</td>
@@ -30,11 +30,15 @@
         <td>Phone Number</td>
         <td><%= @patient.phone_number %></td>
       </tr>
+      <tr>
+        <td>Date Registered</td>
+        <td><%= @patient.created_at.strftime("%d %B %Y") %></td>
+      </tr>
     </tbody>
   </table>
 </div>
 
 <div class="pull-right">
-  <%= link_to "Back to Patient List", patients_path, class: "btn btn-primary" %>
   <%= link_to "Edit Details", edit_patient_path(@patient.id), class: 'btn btn-primary' %>
+  <%= link_to "Delete Record", patients_path, method: :delete, class: "btn btn-danger" %>
 </div>

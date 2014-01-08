@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 50 }, if: -> { id }
   validates :password, :password_confirmation, presence: true, length: { minimum: 8 }, if: -> { new_record? }
   has_many :patients
+  has_many :appointments
 
   before_save { email.downcase! }
   

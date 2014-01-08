@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220084704) do
+ActiveRecord::Schema.define(version: 20140108071318) do
+
+  create_table "appointments", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.date     "appointment_date"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "doctor"
+  end
+
+  add_index "appointments", ["patient_id"], name: "index_appointments_on_patient_id"
+  add_index "appointments", ["user_id"], name: "index_appointments_on_user_id"
 
   create_table "patients", force: true do |t|
     t.string   "first_name"
