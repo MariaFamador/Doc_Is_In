@@ -39,7 +39,7 @@ class PatientsController < ApplicationController
   end
 
 
-  private
+  protected
 
   def patient_params
     params.require(:patient).permit(

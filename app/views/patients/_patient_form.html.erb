@@ -8,7 +8,7 @@
                     as: :string,
                     start_year: Date.today.year - 90,
                     end_year: Date.today.year,
-                    order: [:month, :day, :year], required: true, required: true %>
+                    order: [:month, :day, :year], required: true %>
   <%= f.input :address %>
   <%= f.input :phone_number, label: "Phone number" %>
   <%= f.input :user_id, as: :hidden,
