@@ -11,7 +11,7 @@ class PatientsController < ApplicationController
     if @patient.save
       redirect_to patient_path(@patient.id), notice: "Record saved."
     else
-      redirect_to new_patient_path, notice: "Record not created."
+      redirect_to new_patient_path, alert: "Record not created."
     end
   end
 
@@ -29,7 +29,7 @@ class PatientsController < ApplicationController
     if @patient.update(patient_params)
       redirect_to patient_path(@patient.id), notice: "Changes saved."
     else
-      redirect_to patient_path(@patient.id), notice: "Error in changes."
+      redirect_to patient_path(@patient.id), alert: "Error in changes."
     end
   end
 
@@ -46,6 +46,7 @@ class PatientsController < ApplicationController
       :first_name,
       :middle_name, 
       :last_name, 
+      :gender,
       :dob, 
       :age,
       :address,
