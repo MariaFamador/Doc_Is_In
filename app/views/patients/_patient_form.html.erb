@@ -4,17 +4,18 @@
   <%= f.input :first_name, required: true %> 
   <%= f.input :middle_name %>
   <%= f.input :last_name, required: true %>
+  <%= f.input :gender, required: true %>
   <%= f.input :dob, label: "Date of Birth",
-                    as: :string,
+                    as: :date,
                     start_year: Date.today.year - 90,
                     end_year: Date.today.year,
-                    order: [:month, :day, :year], required: true %>
+                    order: [:day,:month, :year],
+                    required: true %>
   <%= f.input :address %>
   <%= f.input :phone_number, label: "Phone number" %>
   <%= f.input :user_id, as: :hidden,
                         input_html: { value: current_user.id },
                         required: true %>
-
   <br>
   <%= f.button :submit, "Save", class: "btn btn-success" %>
 <% end %>
