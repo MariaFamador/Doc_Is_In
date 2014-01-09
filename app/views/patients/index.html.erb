@@ -1,9 +1,6 @@
-<h3>Patient List (Dr. <%= current_user.last_name %>)</h3>
-<br><br>
-
 
 <% if @patients.empty? %>
-  <h4>There are no patient records to date</h4>
+  <h5>There are no patient records to date</h5>
 <% else %>
   <div class='patient_records_table'>
     <table class='table table-hover'>
@@ -12,8 +9,7 @@
           <th>Patient ID</th>
           <th>Last Name</th>
           <th>First Name</th>
-          <th>Record Created</th>
-          <th>Actions</th>
+          <th><center>Actions</center></th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +31,6 @@
   </div>
 <% end %>
 
-<%= link_to "Add Patient", new_patient_path, class: "btn btn-primary pull-right" %>
+<div><%= link_to "Add Patient", new_patient_path, class: "btn btn-success" %></div>
 
 

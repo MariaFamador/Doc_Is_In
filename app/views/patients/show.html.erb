@@ -1,15 +1,8 @@
 
 <div class="patient_show_page">
+  <h4><%= "#{@patient.last_name}, #{@patient.first_name}"%></h4>
   <table class="table table-hover">
     <tbody>
-      <tr>
-        <td>Last Name</td>
-        <td><%= @patient.last_name %></td>
-      </tr>
-      <tr>
-        <td>First Name</td>
-        <td><%= @patient.first_name %></td>
-      </tr>
       <tr>
         <td>Gender</td>
         <td><%= @patient.gender %></td>
