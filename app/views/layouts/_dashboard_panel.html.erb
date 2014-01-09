@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+  <div class="col-md-3" id='dashboard-panel'>
+    <ul class="nav bs-sidenav" style="max-width: 250px;" >
+      <li>
+        <a href="#">Appointments</a>
+      </li>
+      <li>
+        <%= link_to "Patient Records", patients_path %> 
+      </li>
+      <li>
+        <a href="#">Prescription Generator</a>
+      </li>
+      <li>
+        <a href="#">Phonebook</a>
+      </li>
+    </ul>
+  </div>
+<% end %>

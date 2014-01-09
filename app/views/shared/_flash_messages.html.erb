@@ -1,0 +1,21 @@
+
+<div class='alert'>
+  <% if alert.present? %>
+    <div class='alert alert-danger'>
+      <i class='glyphicon glyphicon-warning-sign'></i>
+      <a class="close" data-dismiss="alert" href='#' aria-hidden="true">&times;</a>
+      <%= alert %>
+    </div>
+  <% end %>
+</div>
+
+<div class='notice'>
+  <% if notice.present? %>
+    <div class='alert alert-success'>
+      <i class='glyphicon glyphicon-ok'></i>
+      <a class="close" data-dismiss='alert' href='#' aria-hidden="true">&times;</a>
+      <%= notice %>
+    </div>
+  <% end %>
+</div>
+
