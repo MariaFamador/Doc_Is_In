@@ -1,12 +1,12 @@
 <h2>Edit Profile (<%= current_user.email %>)</h2>
 
-<div class="container">
+<div id='user-edit-form'>
   <%= simple_form_for @user do |f| %>
     <%= f.input :first_name, required: true %>
     <%= f.input :middle_name, required: false %>
     <%= f.input :last_name, required: true %>
-     <%= f.input :role, required: true %>
-
+    <%= f.input :role, required: true %>
+    <br>
     <%= f.button :submit, "Save Changes", class: 'btn btn-primary' %>
   <% end %>
 </div>

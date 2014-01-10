@@ -1,36 +1,42 @@
-
-<% if @patients.empty? %>
-  <h5>There are no patient records to date</h5>
-<% else %>
-  <div class='patient_records_table'>
-    <table class='table table-hover'>
-      <thead>
-        <tr>
-          <th>Patient ID</th>
-          <th>Last Name</th>
-          <th>First Name</th>
-          <th><center>Actions</center></th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @patients.order(:last_name, :first_name).each do |patient| %>
-        <tr>
-          <td><%= patient.id %></td>
-          <td><%= patient.last_name %></td>
-          <td><%= patient.first_name %></td>
-          <td><%= patient.created_at.strftime("%Y %B %d") %></td>
-          <td>
-              <%= link_to "View Profile", patient_path(patient.id), class: 'btn btn-success' %>
-              <%= link_to "Edit", edit_patient_path(patient.id), class: 'btn btn-primary' %>
-              <%= link_to "Delete", patient_path(patient.id), method: :delete, class: 'btn btn-danger' %>
-          </td>
-        </tr> 
-      <% end %>
-      </tbody>
-    </table>
+<% content_for(:dashboard_extras) do %>
+  <div id='add-patient-btn'>
+    <%= link_to "Add Patient", new_patient_path, class: "btn btn-default btn-lg btn-block" %>
   </div>
 <% end %>
 
-<div><%= link_to "Add Patient", new_patient_path, class: "btn btn-success" %></div>
+<div id='patient-index'>
+  <% if @patients.empty? %>
+    <h5>There are no patient records to date</h5>
+  <% else %>
+    <div id='patient-records-table'>
+      <table class='table table-hover'>
+        <thead id='patient-index-header'>
+          <tr>
+            <th>Patient ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th><center>Actions</center></th>
+          </tr>
+        </thead>
+        <tbody id='patient-index-body'>
+        <% @patients.order(:last_name, :first_name).each do |patient| %>
+          <tr>
+            <td><%= patient.id %></td>
+            <td><%= patient.last_name %></td>
+            <td><%= patient.first_name %></td>
+            <td>
+              <center>
+                <%= link_to "View", patient_path(patient.id), class: 'btn btn-primary' %>
+                <%= link_to "Book Appointment", book_appointment_patient_path(patient), class: 'btn btn-primary' %>
+                <%= link_to "Edit", edit_patient_path(patient), class: 'btn btn-primary' %>
+              </center>
+            </td>
+          </tr> 
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
 
 
