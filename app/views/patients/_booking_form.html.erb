@@ -1,0 +1,22 @@
+<h3>Book appointment for:</h3>
+<br>
+<h4><u><%= "#{@patient.last_name}, #{@patient.first_name}"%></u></h4>
+<br>
+<%= simple_form_for @appointment, html: { class: 'form-inline' } do |f| %>
+  <%= f.input :appointment_date,
+                as: :date,
+                start_year: Date.today.year,
+                end_year: Date.today.year,
+                order: [:day, :month, :year],
+                required: true
+                   %>
+  <%= f.input :user_id, as: :hidden,
+              input_html: { value: current_user.id },
+              required: true %>
+  <%= f.input :patient_id, as: :hidden,
+              input_html: { value: @patient.id },
+              required: true %>
+  <br>
+  <%= f.button :submit, "Save", class: 'btn btn-primary' %>
+<% end %>
+<br>

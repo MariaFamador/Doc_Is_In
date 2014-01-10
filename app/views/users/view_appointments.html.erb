@@ -1,0 +1,11 @@
+
+<% if @user.appointments.empty? %>
+  <p>You have no scheduled appointments</p>
+<% else %>
+  <% @patient.appointments.each do |appointment| %>
+    Appointment with:
+    <%=  "#{@patient.last_name}, #{@patient.first_name}" %>
+    on:
+    <%=  appointment.appointment_date %>
+  <% end %>
+<% end %>
