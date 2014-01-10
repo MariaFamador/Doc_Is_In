@@ -15,10 +15,20 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  def appointments
+    @appointments = Appointment.all
+  end
+
+  protected
 
   def user_params
-    params.require(:user).permit(:first_name, :middle_name, :last_name, :role)
+    params.require(:user).permit(
+        :first_name,
+        :middle_name, 
+        :last_name, 
+        :role,
+        :appointments,
+        :appointment_id)
   end
 
   def get_user

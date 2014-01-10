@@ -38,6 +38,9 @@ class PatientsController < ApplicationController
     redirect_to patients_path
   end
 
+  def book_appointment
+    @appointment = Appointment.new
+  end
 
   protected
 
@@ -52,7 +55,9 @@ class PatientsController < ApplicationController
       :address,
       :phone_number, 
       :doctor,
-      :user_id)
+      :user_id,
+      :appointments,
+      :appointment_id)
   end
 
   def get_patient

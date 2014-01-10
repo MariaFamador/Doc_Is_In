@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates :password, :password_confirmation, presence: true, length: { minimum: 8 }, if: -> { new_record? }
   has_many :patients
   has_many :appointments
+  accepts_nested_attributes_for :appointments
 
   before_save { email.downcase! }
   
