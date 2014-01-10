@@ -11,14 +11,15 @@
   <body style>
     <div id='content'>
       <%= render 'layouts/navbar_top' %>
-      <%= render 'shared/flash_messages' %>
       <div class="row">
-      <!-- dashboard has class='col-md-3' and affix attributes -->
-        <%= render 'layouts/dashboard_panel' %> 
+        <div class="col-md-3" id='dashboard-panel'>
+          <%= render 'layouts/dashboard_panel' %> 
+        </div>
         <div class="col-md-9" id='right-column'>
+          <%= render 'shared/flash_messages' %>
           <%= yield %>
         </div>
-            </div>
+      </div>
     </div>
   </body>
 </html>
