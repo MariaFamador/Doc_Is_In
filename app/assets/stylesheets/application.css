@@ -34,24 +34,21 @@ html {
     height: 100%;
     position: absolute;
 }
+
+#navbar-top {
+  border-radius: 0;
+}
+
 /* left-column */
 
 .bs-sidenav {
   padding-top: 10px;
   padding-bottom: 10px;
-  /*text-shadow: 0 1px 0 #fff;*/
-  background-color: #E2E6EB;
-  border-radius: 5px;
-  color: #FFFFFF;
-#navbar-top {
-  border-radius: 0;
-}
-
-
-#add-patient-btn > .btn.btn-default {
+  text-shadow: 0 1px 0 #fff;
   background-color: #E9E9E9;
+  border-radius: 5px;
+  max-width: 300px;
 }
-/* left-column */
 
 #dashboard-panel {
     background: white;
@@ -63,24 +60,6 @@ html {
     overflow: hidden;
     padding-left: 15px;
     padding-top: 4em;
-}
-
-.bs-sidenav {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-shadow: 0 1px 0 #fff;
-  background-color: #E9E9E9;
-  border-radius: 5px;
-  max-width: 300px;
-}
-
-.bs-sidenav > li > a {
-  color: black;
-  font-size: 16px;
-}
-
-tr > th {
-  font-size: 16px;
 }
 
 /* right-column */
@@ -95,9 +74,6 @@ tr > th {
     overflow-y: auto;  
 }
 
-/* navbar-top */
-nav#navbar-top {
-  background-color: #D6DCE3;
 .patient-records-table {
 }
 
@@ -107,6 +83,11 @@ nav#navbar-top {
 #patient-index-body {
 
 }
+
+/* add-patient-btn */
+/*#add-patient-btn {
+  display: none;
+}*/
 
 
 
