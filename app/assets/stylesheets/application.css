@@ -62,6 +62,16 @@ html {
     padding-top: 4em;
 }
 
+.bs-sidenav > li > a {
+  color: black;
+  font-size: 15px;
+}
+
+/* general styling */
+tr > th {
+  font-size: 16px;
+}
+
 /* right-column */
 
 #right-column {
@@ -74,6 +84,10 @@ html {
     overflow-y: auto;  
 }
 
+#add-patient-btn > .btn.btn-default {
+  background-color: #E9E9E9;
+}
+
 .patient-records-table {
 }
 
@@ -84,10 +98,6 @@ html {
 
 }
 
-/* add-patient-btn */
-/*#add-patient-btn {
-  display: none;
-}*/
 
 
 
