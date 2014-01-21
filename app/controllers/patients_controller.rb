@@ -1,6 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :get_patient, except: [:new, :create, :index]
-
+  before_action :get_patient, except: [:new, :create, :index, :search]
 
   def new
     @patient = Patient.new
@@ -38,8 +37,12 @@ class PatientsController < ApplicationController
     redirect_to patients_path
   end
 
-  def book_appointment
-    @appointment = Appointment.new
+  def search
+    if params[:query].present?
+      @patients = Patient.search(params[:query], partial: true)
+    else
+      @patients = current_user.patients.order(:last_name, :first_name)
+    end
   end
 
   protected

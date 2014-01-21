@@ -12,14 +12,18 @@
       </tr>
     </thead>
     <tbody id='user-appointment-index-body'>
-    <% current_user.appointments.each do |appointment| %>
+    <% current_user.appointments.order(:starts_at).each do |appointment| %>
       <tr>
           <% patient = appointment.patient %>
-          <td><%= appointment.appointment_date %></td>
-          <td><%=  "#{patient.last_name}, #{patient.first_name}" %></td>
+          <% appointment_sched = appointment.starts_at %>
+          <td><%= "#{appointment_sched.strftime("%A, %d %^b")} at #{appointment_sched.strftime("%H: %M")}" %></td>
+          <td><%=  "#{patient.full_name}" %></td>
           <td>
+            <center>
             <%= link_to "View Patient", patient_path(patient), class: 'btn btn-primary' %>
-            <%= link_to "Edit Appointment", edit_appointment_path(patient), class: 'btn btn-primary' %>
+            <%= link_to "Edit Appointment", edit_appointment_path(appointment.id), class: 'btn btn-primary' %>
+            <%= link_to "Cancel", appointment_path(appointment.id), method: :delete, class: 'btn btn-danger' %>
+            </center>
           </td>
       </tr>
     <% end %>

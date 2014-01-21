@@ -12,9 +12,11 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 50 }, if: -> { id }
   validates :last_name, presence: true, length: { maximum: 50 }, if: -> { id }
   validates :password, :password_confirmation, presence: true, length: { minimum: 8 }, if: -> { new_record? }
-  has_many :patients
-  has_many :appointments
-  accepts_nested_attributes_for :appointments
+
+  attr_accessor :appointments_attributes
+  has_many :patients, dependent: :destroy
+  has_many :appointments, dependent: :destroy
+  accepts_nested_attributes_for :appointments, allow_destroy: true
 
   before_save { email.downcase! }
   
