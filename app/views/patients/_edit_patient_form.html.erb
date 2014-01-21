@@ -1,16 +1,16 @@
-
-
 <%= simple_form_for @patient, html: { class: 'form-inline' } do |f| %>
   <%= f.input :first_name, required: true %> 
   <%= f.input :middle_name %>
   <%= f.input :last_name, required: true %>
-  <%= f.input :gender, required: true %>
+  <%= f.input :gender, as: :radio_buttons, collection: %w[Male Female] %>
+  <br>
   <%= f.input :dob, label: "Date of Birth",
                       as: :date,
                     start_year: Date.today.year - 90,
                     end_year: Date.today.year,
                     order: [:day,:month, :year],
                     required: true %>
+  <br>
   <%= f.input :address %>
   <%= f.input :phone_number, label: "Phone number" %>
   <%= f.input :user_id, as: :hidden,
