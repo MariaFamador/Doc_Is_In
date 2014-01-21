@@ -55,9 +55,7 @@ class PatientsController < ApplicationController
       :address,
       :phone_number, 
       :doctor,
-      :user_id,
-      :appointments,
-      :appointment_id)
+      :user_id)
   end
 
   def get_patient

@@ -15,10 +15,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def appointments
-    @appointments = Appointment.all
-  end
-
   protected
 
   def user_params
@@ -26,9 +22,7 @@ class UsersController < ApplicationController
         :first_name,
         :middle_name, 
         :last_name, 
-        :role,
-        :appointments,
-        :appointment_id)
+        :role)
   end
 
   def get_user
