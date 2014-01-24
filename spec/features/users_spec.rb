@@ -46,7 +46,7 @@ feature 'Users' do
       expect(page).to have_content("Edit #{patient.full_name}'s Record")
       click_on "Save"
 
-      expect(page).to have_content("Changes saved.")
+      expect(page).to have_conten””t("Changes saved.")
     end
   end
 
