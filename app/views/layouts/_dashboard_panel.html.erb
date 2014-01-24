@@ -14,9 +14,9 @@
     </li>
   </ul>
   <br>
-  <%= content_for(:dashboard_extras) %>
+  <div id='add-patient-btn'>
+    <%= link_to "Add Patient", new_patient_path, class: "btn btn-default btn-block" %>
+  </div>
   <br>
-  <%= render 'patients/search_patient' %>
-
- 
+  <%= render partial: 'layouts/search_patient' %>
 <% end %>
