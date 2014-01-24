@@ -34,14 +34,14 @@ class PatientsController < ApplicationController
 
   def destroy
     @patient.destroy
-    redirect_to patients_path
+    redirect_to patients_path, notice: "Record deleted."
   end
 
   def search
     if params[:query].present?
       @patients = Patient.search(params[:query], partial: true)
     else
-      @patients = current_user.patients.order(:last_name, :first_name)
+      @patients = Patient.order(:last_name, :first_name)
     end
   end
 

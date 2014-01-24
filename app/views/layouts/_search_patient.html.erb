@@ -1,0 +1,4 @@
+<%= form_tag search_patients_path, class: 'search_form' do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search patient here", class: "form-control" %>
+  <%= submit_tag "Go", class: 'btn btn-success' %>
+<% end %>

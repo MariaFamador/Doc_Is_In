@@ -1,9 +1,3 @@
-<% content_for(:dashboard_extras) do %>
-  <div id='add-patient-btn'>
-    <%= link_to "Add Patient", new_patient_path, class: "btn btn-default btn-block" %>
-  </div>
-<% end %>
-
 <div id='patient-index'>
   <% if current_user.patients.empty? %>
     <h5>There are no patient records to date</h5>

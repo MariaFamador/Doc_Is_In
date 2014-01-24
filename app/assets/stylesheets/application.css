@@ -89,3 +89,8 @@ td#patient-index-actions, th#patient-index-action-header {
   right: 0;
   overflow-y: auto;  
 }
+
+#query {
+  width: 239px;
+  display: inline-block;
+}
