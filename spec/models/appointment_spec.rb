@@ -28,5 +28,4 @@ describe Appointment do
       expect(appointment.starts_at).to eq ("#{starts_at_date} #{starts_at_time}").to_datetime
     end
   end
-
 end
