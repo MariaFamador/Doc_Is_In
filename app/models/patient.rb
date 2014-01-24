@@ -4,8 +4,7 @@ class Patient < ActiveRecord::Base
   accepts_nested_attributes_for :appointments, allow_destroy: true
 
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
-  validates :user_id, presence: true
-  validates :dob, :gender, presence: true
+  validates :user, :dob, :gender, presence: true
 
   searchkick
 

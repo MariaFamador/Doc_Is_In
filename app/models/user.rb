@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }, 
             if: -> { new_record? }
-  validates :first_name, presence: true, length: { maximum: 50 }, if: -> { id }
-  validates :last_name, presence: true, length: { maximum: 50 }, if: -> { id }
+  validates :first_name, :last_name, presence: true, length: { maximum: 50 }, if: -> { id }
   validates :password, :password_confirmation, presence: true, length: { minimum: 8 }, if: -> { new_record? }
+  validates :role, presence: true, if: -> { id }
 
   attr_accessor :appointments_attributes
   has_many :patients, dependent: :destroy
