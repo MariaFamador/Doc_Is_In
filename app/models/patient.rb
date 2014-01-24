@@ -16,7 +16,8 @@ class Patient < ActiveRecord::Base
   def full_name
     name = "#{last_name}, " + ""
     name += "#{first_name} "
-    name += "#{middle_name}" unless middle_name.nil?
+    name += "#{middle_name}" unless middle_name.blank?
+    name.strip
   end
 end
 

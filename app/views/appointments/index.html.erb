@@ -17,10 +17,9 @@
           <% patient = appointment.patient %>
           <% appointment_sched = appointment.starts_at %>
           <td><%= "#{appointment_sched.strftime("%A, %d %^b")} at #{appointment_sched.strftime("%H: %M")}" %></td>
-          <td><%=  "#{patient.full_name}" %></td>
+          <td><%= link_to "#{patient.full_name}", patient_path(patient) %></td>
           <td>
             <center>
-            <%= link_to "View Patient", patient_path(patient), class: 'btn btn-primary' %>
             <%= link_to "Edit Appointment", edit_appointment_path(appointment.id), class: 'btn btn-primary' %>
             <%= link_to "Cancel", appointment_path(appointment.id), method: :delete, class: 'btn btn-danger' %>
             </center>
