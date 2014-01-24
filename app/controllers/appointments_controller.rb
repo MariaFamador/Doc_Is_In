@@ -36,7 +36,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to :back
+    redirect_to :back, notice: "Appointment cancelled."
   end
 
   # def index
