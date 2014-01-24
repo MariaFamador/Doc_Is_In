@@ -37,8 +37,9 @@ end
 
 group :test do
   gem 'launchy'
-  gem 'selenium-webdriver', '2.35.1'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'database_cleaner'
 end
 
 group :doc do
