@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -29,7 +30,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -43,12 +44,4 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods #no need to declare FactoryGirl to use methods(i.e. create, build)
-  # config.before :each do 
-  #   Patient.index.delete
-  #   Patient.create_elasticsearch_index
-  # end
-
-  # config.before :all do
-  #   Patient.index_name(‘test_’ + Patient.model_name.plural)
-  # end
 end
