@@ -8,7 +8,15 @@ class Appointment < ActiveRecord::Base
 
   before_validation :update_starts_at
 
-  validates :starts_at, :starts_at_time, :starts_at_date,  presence: true
+  validates :starts_at,
+            :starts_at_time,
+            :starts_at_date,
+            :patient,
+            :user,
+            :first_name,
+            :last_name,
+            presence: true
+
 
   def update_starts_at
     self.starts_at = "#{starts_at_date} #{starts_at_time}".to_datetime
