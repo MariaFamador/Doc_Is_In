@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114093358) do
+ActiveRecord::Schema.define(version: 20140129072026) do
 
   create_table "appointments", force: true do |t|
     t.datetime "created_at"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20140114093358) do
 
   add_index "appointments", ["patient_id"], name: "index_appointments_on_patient_id"
   add_index "appointments", ["user_id"], name: "index_appointments_on_user_id"
+
+  create_table "medical_histories", force: true do |t|
+    t.string   "allergies"
+    t.string   "previous_diseases"
+    t.string   "family_diseases"
+    t.string   "medication"
+    t.integer  "patient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "medical_histories", ["patient_id"], name: "index_medical_histories_on_patient_id"
 
   create_table "patients", force: true do |t|
     t.string   "first_name"
