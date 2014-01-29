@@ -1,0 +1,38 @@
+<div id="patient_profile">
+  <div class="patient_show_page">
+    <h4><%= "#{@patient.full_name}"%></h4>
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td>Gender</td>
+          <td><%= @patient.gender %></td>
+        </tr>
+        <tr>
+          <td>Age</td>
+          <td><%= @patient.age %></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td><%= @patient.dob.strftime("%d %B %Y") %></td>
+        </tr>
+         <tr>
+          <td>Address</td>
+          <td><%= @patient.address %></td>
+        </tr>
+         <tr>
+          <td>Phone Number</td>
+          <td><%= @patient.phone_number %></td>
+        </tr>
+        <tr>
+          <td>Date Registered</td>
+          <td><%= @patient.created_at.strftime("%d %B %Y") %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pull-right">
+    <%= link_to "Edit Details", edit_patient_path(@patient.id), class: 'btn btn-primary', remote: true %>
+    <%= link_to "Delete Record", patient_path(@patient.id), method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>

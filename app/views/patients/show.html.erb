@@ -1,38 +1,25 @@
+<ul class="nav nav-tabs" id ="patient-show-tabs">
+  <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+  <li><a href="#medical-history" data-toggle="tab">Medical History</a></li>
+  <li><a href="#patient-appointments" data-toggle="tab">Appointments</a></li>
+  <li><a href="#prescription" data-toggle="tab">Prescription</a></li>
+</ul>
 
-<div class="patient_show_page">
-  <h4><%= "#{@patient.full_name}"%></h4>
-  <table class="table table-hover">
-    <tbody>
-      <tr>
-        <td>Gender</td>
-        <td><%= @patient.gender %></td>
-      </tr>
-      <tr>
-        <td>Age</td>
-        <td><%= @patient.age %></td>
-      </tr>
-      <tr>
-        <td>Date of Birth</td>
-        <td><%= @patient.dob.strftime("%d %B %Y") %></td>
-      </tr>
-       <tr>
-        <td>Address</td>
-        <td><%= @patient.address %></td>
-      </tr>
-       <tr>
-        <td>Phone Number</td>
-        <td><%= @patient.phone_number %></td>
-      </tr>
-      <tr>
-        <td>Date Registered</td>
-        <td><%= @patient.created_at.strftime("%d %B %Y") %></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="tab-content">
+  <div class="tab-pane active" id="profile">
+    <br>
+    <%= render 'patients/patient_profile'%> 
+  </div>
+  <div class="tab-pane" id="medical-history">
+    <br>
+    <%= render 'patients/medical_history' %>
+  </div>
+  <div class="tab-pane" id="patient-appointments">
+    <br>
+    <%= render 'appointments/patient_appointments' %>
+  </div>
+  <div class="tab-pane" id="prescription">
+    <br>
+    <%= render 'patients/prescription' %>
+  </div>
 </div>
-
-<div class="pull-right">
-  <%= link_to "Edit Details", edit_patient_path(@patient.id), class: 'btn btn-primary' %>
-  <%= link_to "Delete Record", patient_path(@patient.id), method: :delete, class: "btn btn-danger" %>
-</div>
-
