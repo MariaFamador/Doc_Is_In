@@ -1,36 +1,36 @@
-
-<% if current_user.appointments.empty? %>
-  You have no scheduled appointments.
-<% else %>
-  <div id='appointments-table'>
-  <table class='table table-hover'>
-    <thead id='user-appointment-index-header'>
-      <tr>
-        <th>Schedule</th>
-        <th>Patient Name</th>
-        <th><center>Actions</center></th>
-      </tr>
-    </thead>
-    <tbody id='user-appointment-index-body'>
-    <% current_user.appointments.order(:starts_at).each do |appointment| %>
-      <tr>
-          <% patient = appointment.patient %>
-          <% appointment_sched = appointment.starts_at %>
-          <td><%= "#{appointment_sched.strftime("%A, %d %^b")} at #{appointment_sched.strftime("%H: %M")}" %></td>
-          <td><%= link_to "#{patient.full_name}", patient_path(patient) %></td>
-          <td>
-            <center>
-            <%= link_to "Edit Appointment", edit_appointment_path(appointment.id), class: 'btn btn-primary' %>
-            <%= link_to "Cancel", appointment_path(appointment.id), method: :delete, class: 'btn btn-danger' %>
-            </center>
-          </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-  </div>
- 
-<% end %>
-  
-  
- 
+  <div class="appointments-index">
+  <% if current_user.appointments.empty? %>
+    You have no scheduled appointments.
+  <% else %>
+    <div id='appointments-table'>
+    <table class='table table-hover'>
+      <thead id='user-appointment-index-header'>
+        <tr>
+          <th>Date</th>
+          <th width="15%">Time</th>
+          <th>Patient Name</th>
+          <th><center>Actions</center></th>
+        </tr>
+      </thead>
+      <tbody id='user-appointment-index-body'>
+      <% current_user.appointments.order(:starts_at).each do |appointment| %>
+        <tr>
+            <% patient = appointment.patient %>
+            <td><%= appointment.format_date %></td>
+            <td><%= appointment.format_time %></td>
+            <td><%= link_to "#{patient.full_name}", patient_path(patient) %></td>
+            <td>
+              <center>
+              <%= link_to "Edit Appointment", edit_appointment_path(appointment.id), class: 'btn btn-primary' %>
+              <%= link_to "Cancel", appointment_path(appointment.id), method: :delete, class: 'btn btn-danger' %>
+              </center>
+            </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    </div>
+  <% end %>
+</div>    
+    
+   
