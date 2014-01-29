@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
   before_action :get_patient, only: [:show, :update, :new, :create]
-  before_action :get_user
   before_action :get_appointment, except: [:new, :create, :index]
 
   def new
@@ -58,14 +57,7 @@ class AppointmentsController < ApplicationController
     @patient = Patient.find(params[:patient_id])
   end
 
-  def get_user
-    @user = current_user.id
-  end
-
   def get_appointment
     @appointment = Appointment.find(params[:id])
   end
 end
-
-  
-
