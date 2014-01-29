@@ -22,6 +22,11 @@ class PatientsController < ApplicationController
   end
 
   def edit  
+    @patient = Patient.find(params[:id])
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def update
