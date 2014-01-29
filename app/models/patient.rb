@@ -2,6 +2,8 @@ class Patient < ActiveRecord::Base
   belongs_to :user
   has_many :appointments, dependent: :destroy
   accepts_nested_attributes_for :appointments, allow_destroy: true
+  has_one :medical_history
+  accepts_nested_attributes_for :medical_history
 
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   validates :user, :dob, :gender, presence: true

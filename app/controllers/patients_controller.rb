@@ -15,13 +15,15 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @medical_history = @patient.medical_history || @patient.build_medical_history
+    @allergies = MedicalHistory::ALLERGIES
   end
 
   def index
     @patients = current_user.patients
   end
 
-  def edit  
+  def edit
     @patient = Patient.find(params[:id])
     respond_to do |format|
       format.js
