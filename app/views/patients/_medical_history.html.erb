@@ -1,0 +1,15 @@
+<h4><%="#{@patient.full_name}"%></h4>
+<section id='medical-history'>
+  <h4>Allergies</h4>
+  <div class='row'>
+    <div class='span6'>
+      <form>
+        <%= select_tag 'allergies', options_for_select(@allergies, nil), class: 'select2 form-control', multiple: true %>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="allergy-list">
+
+</div>
