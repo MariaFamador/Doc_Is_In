@@ -6,9 +6,6 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '3.0.3.0'
 gem 'pg', '0.15.1'
-gem 'bcrypt-ruby', '~>3.0.0'
-gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
 gem 'simple_form'
 gem 'country_select'
 gem 'devise'
@@ -17,22 +14,21 @@ gem 'pickadate-rails'
 gem 'time_splitter'
 gem 'elasticsearch'
 gem 'searchkick'
+gem 'select2-rails'
 
 gem 'sass-rails', '>=3.2'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
 gem 'jquery-ui-rails'
-gem 'turbolinks', '1.1.1'
+gem 'jquery-turbolinks'
+gem 'turbolinks'
 gem 'jbuilder', '1.0.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
-  gem 'rspec-rails', '2.13.1'
   gem 'pry'
-  gem 'factory_girl_rails'
   gem 'ffaker'
-  gem 'capybara', '2.1.0'
 end
 
 group :test do
@@ -40,6 +36,9 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'capybara', '2.1.0'
+  gem 'rspec-rails', '2.13.1'
 end
 
 group :doc do
