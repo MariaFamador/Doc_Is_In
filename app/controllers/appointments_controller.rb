@@ -39,19 +39,7 @@ class AppointmentsController < ApplicationController
     redirect_to :back, notice: "Appointment cancelled."
   end
 
-  # def index
-  #   start_time = Date.today.at_beginning_of_month
-  #   end_time = Date.today.at_end_of_month
-
-  #   #@appointments = Appoinment.where(date: start_time..end_time)
-
-  #   respond_to do |format|
-  #     format.html
-  #     format.json
-  #   end
-  # end
-
-  protected
+  private
 
   def appointment_params
     params.require(:appointment).permit(
