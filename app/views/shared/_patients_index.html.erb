@@ -1,0 +1,26 @@
+<table class='table table hover'>
+  <thead id='patient-index-thead'>
+    <tr>
+      <th>ID</th>
+      <th>Patient</th>
+      <th width="18%">Date of Birth</th>
+      <th width="35%">Address</th>
+      <th width="20%"><center>Actions</center></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @patients.each do |patient| %>
+    <tr>
+      <td><%= patient.id %>
+      <td><%= link_to "#{patient.full_name}", patient_path(patient.id) %></td>
+      <td><%= patient.dob%></td>
+      <td><%= patient.address%></td>
+      <td>
+        <center>
+        <%= link_to "Book Appointment", new_appointment_path(patient_id: patient.id), class: 'btn btn-success' %>
+        </center>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
