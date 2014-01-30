@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20140129072026) do
   add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
 
   create_table "medical_histories", force: true do |t|
-    t.string   "allergies",         default: "--- []\n"
-    t.string   "previous_diseases", default: "--- []\n"
-    t.string   "family_diseases",   default: "--- []\n"
-    t.string   "medication",        default: "--- []\n"
+    t.string   "allergies",         default: [], array: true
+    t.string   "previous_diseases", default: [], array: true
+    t.string   "family_diseases",   default: [], array: true
+    t.string   "medication",        default: [], array: true
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
