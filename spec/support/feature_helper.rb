@@ -8,11 +8,13 @@ module FeatureHelper
     click_button 'Sign in'
 
     expect(page).to have_content('Signed in successfully.')
+    expect(page).to have_content("Hello, Dr. #{user.first_name} #{user.last_name}")
   end
 
   def sign_out(user)
     click_on "Logout"
     expect(page).to have_content("Sign in")
+    expect(page).to have_content("Signed out successfully.")
   end
 end
 

@@ -12,7 +12,7 @@ feature 'Users' do
     scenario "can create patients" do
       click_on "Patient Records"      
       click_on "Add Patient"
-      expect(page).to have_content("Patient Form")
+      expect(page).to have_content("Patient Registration Form")
       fill_in "First name", with: "Maria"
       fill_in "Last name", with: "Famador"
       choose "Female"
@@ -26,7 +26,7 @@ feature 'Users' do
       expect(page).to have_content("Record saved.")
     end
 
-    scenario "can delete patient records" do
+    scenario "can delete patient records", js: true do
       patient
       patient2
 
@@ -38,15 +38,15 @@ feature 'Users' do
       expect(page).to have_content("Record deleted")
     end
 
-    scenario "can edit patient records" do
+    scenario "can edit patient records", js: true do
       patient
       click_on "Patient Records"
       click_on patient.full_name
       click_on "Edit Details"
-      expect(page).to have_content("Edit #{patient.full_name}'s Record")
+      expect(page).to have_content("#{patient.full_name}")
       click_on "Save"
 
-      expect(page).to have_conten””t("Changes saved.")
+      expect(page).to have_content("Changes saved.")
     end
   end
 
