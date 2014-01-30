@@ -1,16 +1,16 @@
 <% if user_signed_in? %>
-  <ul class="nav bs-sidenav" >
+  <ul class="nav bs-sidenav" id="dashboards-panel">
     <li>
-      <a href="<%= appointments_path %>">Appointments</a>
+      <%= link_to "Appointments", appointments_path %>
     </li>
     <li>
       <%= link_to "Patient Records", patients_path %> 
     </li>
     <li>
-      <a href="#">Prescription Generator</a>
+      <%= link_to "Prescription Generator", "#" %>
     </li>
     <li>
-      <a href="#">Phonebook</a>
+      <%= link_to "Phonebook", "#" %>
     </li>
   </ul>
   <br>
@@ -20,3 +20,7 @@
   <br>
   <%= render partial: 'layouts/search_patient' %>
 <% end %>
+
+
+
+
