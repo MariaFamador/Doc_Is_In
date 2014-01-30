@@ -20,7 +20,7 @@ class PatientsController < ApplicationController
   end
 
   def index
-    @patients = current_user.patients
+    @patients = current_user.patients.order(:last_name, :first_name)
   end
 
   def edit
