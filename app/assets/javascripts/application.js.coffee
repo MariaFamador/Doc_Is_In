@@ -33,7 +33,7 @@ ready = ->
 
   $('.select2').each ->
     $(@).select2
-      placeholder: "Select"
+      placeholder: "Please select..."
 
 $ ->
   ready()
