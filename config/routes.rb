@@ -3,7 +3,7 @@ DocIsIn::Application.routes.draw do
   resources :users
   resources :patients do
     post :search, on: :collection
-    resources :medical_histories
+    resources :medical_histories, on: :member
   end
 
   resources :appointments

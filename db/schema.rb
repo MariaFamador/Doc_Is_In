@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140129072026) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "appointments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -25,20 +28,20 @@ ActiveRecord::Schema.define(version: 20140129072026) do
     t.datetime "starts_at"
   end
 
-  add_index "appointments", ["patient_id"], name: "index_appointments_on_patient_id"
-  add_index "appointments", ["user_id"], name: "index_appointments_on_user_id"
+  add_index "appointments", ["patient_id"], name: "index_appointments_on_patient_id", using: :btree
+  add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
 
   create_table "medical_histories", force: true do |t|
-    t.string   "allergies"
-    t.string   "previous_diseases"
-    t.string   "family_diseases"
-    t.string   "medication"
+    t.string   "allergies",         default: "--- []\n"
+    t.string   "previous_diseases", default: "--- []\n"
+    t.string   "family_diseases",   default: "--- []\n"
+    t.string   "medication",        default: "--- []\n"
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "medical_histories", ["patient_id"], name: "index_medical_histories_on_patient_id"
+  add_index "medical_histories", ["patient_id"], name: "index_medical_histories_on_patient_id", using: :btree
 
   create_table "patients", force: true do |t|
     t.string   "first_name"
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140129072026) do
     t.string   "gender"
   end
 
-  add_index "patients", ["user_id"], name: "index_patients_on_user_id"
+  add_index "patients", ["user_id"], name: "index_patients_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -77,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140129072026) do
     t.string   "last_name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
