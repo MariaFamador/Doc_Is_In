@@ -17,6 +17,7 @@ class PatientsController < ApplicationController
   def show
     @medical_history = @patient.medical_history || @patient.build_medical_history
     @allergies = MedicalHistory::ALLERGIES
+    @previous_diseases = MedicalHistory::PREVIOUS_DISEASES
   end
 
   def index
@@ -65,7 +66,15 @@ class PatientsController < ApplicationController
       :address,
       :phone_number, 
       :doctor,
-      :user_id)
+      :user_id,
+      medical_history_attributes: [
+        :patient_id,
+        :id,
+        allergies: [],
+        previous_diseases: [],
+        family_diseases: [],
+        medication: []
+      ])
   end
 
   def get_patient

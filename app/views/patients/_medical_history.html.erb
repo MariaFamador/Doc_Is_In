@@ -1,13 +1,19 @@
 <h4><%="#{@patient.full_name}"%></h4>
 <section id='medical-history'>
-  <h4>Allergies</h4>
-  <div class='row'>
-    <div class='span6'>
-      <form>
-        <%= select_tag 'allergies', options_for_select(@allergies, nil), class: 'select2 form-control', multiple: true %>
-      </form>
+    <div class='row'>
+
+      <%= simple_form_for @patient do |f| %>
+
+        <%= f.simple_fields_for :medical_history do |m| %>
+          <%= m.input :allergies, collection: @allergies, input_html: { class: 'select2', multiple: true } %>
+          <%= m.input :previous_diseases, collection: @previous_diseases, input_html: { class: 'select2', multiple: true } %>
+
+        <% end %>
+
+        <%= f.button :submit, "Save", class: 'btn btn-primary' %>
+      <% end %>
+
     </div>
-  </div>
 </section>
 
 <div class="allergy-list">
