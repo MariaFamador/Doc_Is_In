@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery.turbolinks
 #= require jquery_ujs
+#= require jquery.ui.all
 #= require bootstrap
 #= require pickadate/picker
 #= require pickadate/picker.date 
@@ -12,7 +13,23 @@
 
 ready = ->
   $('#appointments').fullCalendar
+    height: 550
+    allDayDefault: false
+    slotEventOverlap: false
+    defaultEventMinutes: 20
+    slotMinutes: 20
+    editable: true
     events: '/appointments.json'
+    header: {
+      left: 'prev, next',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    }
+    dragOpacity: {
+      '': .5
+    }
+    minTime: 8
+    maxTime: 18
 
   $('.datepicker').pickadate
     format: 'dddd, dd mmm, yyyy'
