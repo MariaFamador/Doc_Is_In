@@ -3,14 +3,14 @@
 
   <h4><u><%= "#{patient.full_name}"%></u></h4>
   <br>
-  <%= simple_form_for @appointment, url: appointments_path(patient_id: patient.id), method: :post,html: { class: 'form-inline'} do |f| %>
+  <%= simple_form_for @appointment, url: appointment_path(@appointment, patient_id: patient.id), method: :patch ,html: { class: 'form-inline'} do |f| %>
     <%= f.input :starts_at_date,
                   label: "Appointment",
                   as: :string,
-                  required: true, input_html: { class: "datepicker" } %>
+                  required: true, input_html: { class: "datepicker", value: f.object.format_date } %>
     <%= f.input :starts_at_time, 
                   as: :string, 
-                  required: true, input_html: { class: "timepicker" } %>
+                  required: true, input_html: { class: "timepicker", value: f.object.format_time } %>
     <%= f.input :user_id, as: :hidden,
                 input_html: { value: current_user.id },
                 required: true %>

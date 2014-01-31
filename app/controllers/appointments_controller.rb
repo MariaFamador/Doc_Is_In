@@ -19,8 +19,8 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    if @patient.appointment.update(appointment_params)
-      redirect_to appointments_path  
+    if @appointment.update(appointment_params)
+      redirect_to appointments_path, notice: "Appointment changed."  
     else
       render :edit, alert: 'Unable to save appointment'
     end
