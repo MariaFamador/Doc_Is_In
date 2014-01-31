@@ -21,4 +21,11 @@ class Patient < ActiveRecord::Base
     name += "#{middle_name}" unless middle_name.blank?
     name.strip
   end
+
+  def initials
+    name = "#{last_name}, " + ""
+    name += "#{first_name.first}. "
+    name += "#{middle_name.first}." unless middle_name.blank?
+    name.strip
+  end
 end
