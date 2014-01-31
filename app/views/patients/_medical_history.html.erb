@@ -1,21 +1,22 @@
 <h4><%="#{@patient.full_name}"%></h4>
 <section id='medical-history'>
-    <div class='row'>
+    <div>
 
       <%= simple_form_for @patient do |f| %>
 
         <%= f.simple_fields_for :medical_history do |m| %>
           <%= m.input :allergies, collection: @allergies, input_html: { class: 'select2', multiple: true } %>
           <%= m.input :previous_diseases, collection: @previous_diseases, input_html: { class: 'select2', multiple: true } %>
+          <%= m.input :medication_and_supplements, hint: 'medication or supplement and dosage' %>
+          <%= m.input :surgery_and_hospitalization, hint: 'illness - including dates' %>
+          <%= m.input :family_history, hint: 'state condition and relationship' %>
+          <%= m.input :notes, label: "Doctor's notes:" %>
 
         <% end %>
-
+        <br>
         <%= f.button :submit, "Save", class: 'btn btn-primary' %>
       <% end %>
 
     </div>
 </section>
 
-<div class="allergy-list">
-
-</div>

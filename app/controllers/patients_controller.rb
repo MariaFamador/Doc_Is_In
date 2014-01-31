@@ -18,6 +18,10 @@ class PatientsController < ApplicationController
     @medical_history = @patient.medical_history || @patient.build_medical_history
     @allergies = MedicalHistory::ALLERGIES
     @previous_diseases = MedicalHistory::PREVIOUS_DISEASES
+    @medication_and_supplements = @medical_history.medication_and_supplements
+    @surgery_and_hospitalization = @medical_history.surgery_and_hospitalization
+    @family_history = @medical_history.family_history
+    @notes = @medical_history.notes
   end
 
   def index
@@ -70,10 +74,12 @@ class PatientsController < ApplicationController
       medical_history_attributes: [
         :patient_id,
         :id,
+        :medication_and_supplements,
+        :surgery_and_hospitalization,
+        :family_history,
+        :notes,
         allergies: [],
-        previous_diseases: [],
-        family_diseases: [],
-        medication: []
+        previous_diseases: [],   
       ])
   end
 

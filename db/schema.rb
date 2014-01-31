@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129072026) do
+ActiveRecord::Schema.define(version: 20140131065234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,10 +32,12 @@ ActiveRecord::Schema.define(version: 20140129072026) do
   add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
 
   create_table "medical_histories", force: true do |t|
-    t.string   "allergies",         default: [], array: true
-    t.string   "previous_diseases", default: [], array: true
-    t.string   "family_diseases",   default: [], array: true
-    t.string   "medication",        default: [], array: true
+    t.string   "allergies",                   default: [], array: true
+    t.string   "previous_diseases",           default: [], array: true
+    t.text     "medication_and_supplements"
+    t.text     "family_history"
+    t.text     "surgery_and_hospitalization"
+    t.text     "notes"
     t.integer  "patient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
