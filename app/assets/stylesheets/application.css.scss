@@ -102,7 +102,26 @@ th#patient-index-action-header {
 }
 
 .patient_first_name, .patient_middle_name, .patient_last_name {
-  width: 33%;
+  width: 25%;
+  display: inline-block;
+}
+
+.patient_gender {
+  width: 20%;
+  display: inline-block;
+}
+
+select#patient_gender, .patient_gender label {
+  width: 97%
+}
+
+.patient_address, .patient_phone_number {
+  width: 35%;
+  display: inline-block;
+}
+
+.patient_dob {
+  width: 25%;
   display: inline-block;
 }
 
@@ -111,13 +130,10 @@ label {
   margin-bottom: 2px;
 }
 
-.form-inline .radio label {
-  margin-right: 15px;
-  margin-left: 5px;
+label .radio, span .radio,.radio input[type="radio"] {
+  border: none;
+  width: 20px;
 }
 
-.radio input[type="radio"] {
-  width: 20px;
-  border: none;
-}
+
 
