@@ -1,0 +1,5 @@
+<%= simple_form_for @patient do |f| %>
+  <%= f.simple_fields_for :medical_history do |m| %>
+    <%= m.input :notes, label: "Doctor's Notes" %>
+  <% end %>
+<% end %>

@@ -3,7 +3,10 @@
   <li><a href="#medical-history" data-toggle="tab">Medical History</a></li>
   <li><a href="#patient-appointments" data-toggle="tab">Appointments</a></li>
   <li><a href="#prescription" data-toggle="tab">Prescription</a></li>
+  <li><a href="#doctors_notes" data-toggle="tab">Doctor's Notes</a></li>
+
 </ul>
+
 
 <div class="tab-content">
   <div class="tab-pane active" id="profile">
@@ -21,5 +24,9 @@
   <div class="tab-pane" id="prescription">
     <br>
     <%= render 'patients/prescription' %>
+  </div>
+  <div class="tab-pane" id="doctors_notes">
+    <br>
+    <%= render 'patients/doctors_notes' %>
   </div>
 </div>
