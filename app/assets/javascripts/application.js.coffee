@@ -1,4 +1,5 @@
 #= require jquery
+#= require jquery.turbolinks
 #= require jquery_ujs
 #= require bootstrap
 #= require pickadate/picker
@@ -35,6 +36,5 @@ ready = ->
     $(@).select2
       placeholder: "Please select..."
 
-$ ->
-  ready()
-$(document).on 'page:load', ready()
+$(document).ready(ready)
+
