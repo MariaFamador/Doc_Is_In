@@ -16,8 +16,8 @@ ready = ->
     height: 550
     allDayDefault: false
     slotEventOverlap: false
-    defaultEventMinutes: 20
-    slotMinutes: 20
+    defaultEventMinutes: 15
+    slotMinutes: 5
     editable: true
     events: '/appointments.json'
     header: {
