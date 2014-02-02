@@ -8,7 +8,7 @@
   <%= f.input :first_name, required: true %> 
   <%= f.input :middle_name %>
   <%= f.input :last_name, required: true %>
-  <%= f.input :gender, collection: %w[Male Female] %>
+  <%= f.input :gender, collection: %w[Male Female], input_html: { class: 'select2', multiple: false } %>
   </div>
   <div id="-dob-address-phonumber-form">
   <%= f.input :dob, label: "Date of Birth",

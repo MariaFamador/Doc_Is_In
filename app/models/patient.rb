@@ -11,6 +11,8 @@ class Patient < ActiveRecord::Base
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   validates :user, :dob, :gender, presence: true
 
+  GENDER = %w[Male Female]
+
   def age
     Date.today.year - dob.year
   end
