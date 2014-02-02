@@ -16,7 +16,7 @@ ready = ->
     height: 550
     allDayDefault: false
     slotEventOverlap: false
-    defaultEventMinutes: 15
+    defaultEventMinutes: 51
     slotMinutes: 5
     editable: true
     events: '/appointments.json'
@@ -57,6 +57,7 @@ ready = ->
   $('.select2').each ->
     $(@).select2
       placeholder: "Please select..."
+      closeOnSelect: false
 
 $(document).ready(ready)
 
