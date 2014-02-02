@@ -8,6 +8,7 @@ class CreatePatients < ActiveRecord::Migration
       t.integer :age
       t.string  :address
       t.string  :phone_number  
+      t.string  :gender
     
       t.timestamps
     end
