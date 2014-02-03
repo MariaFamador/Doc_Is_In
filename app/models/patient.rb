@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-  searchkick
+  searchkick word_start: [:first_name, :middle_name, :last_name]
 
   belongs_to :user
   has_many :appointments, dependent: :destroy
@@ -10,8 +10,6 @@ class Patient < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   validates :user, :dob, :gender, presence: true
-
-  GENDER = %w[Male Female]
 
   def age
     Date.today.year - dob.year

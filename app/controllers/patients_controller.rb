@@ -51,7 +51,12 @@ class PatientsController < ApplicationController
 
   def search
     if params[:query].present?
-      @patients = Patient.search(params[:query], partial: true)
+      @patients = Patient.search(
+        params[:query], 
+        where: { user_id: current_user.id }, 
+        partial: true,
+        fields: [{first_name: :word_start}, {middle_name: :word_start}, {last_name: :word_start}]
+      )
     else
       @patients = Patient.order(:last_name, :first_name)
     end
