@@ -27,9 +27,8 @@
 }
 
 html {
-    width: 100%;
-    height: 100%;
-    position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 #navbar-top {
@@ -52,15 +51,13 @@ html {
   background: white;
   position: absolute;
   left: 0;
-  top: 50px;
-  bottom: 0;
+  top: 52px;
+  bottom: 15px;
   right: 75%;
   overflow: hidden;
   padding-left: 15px;
-  padding-top: 4em;
+  padding-top: 1em;
 }
-
-/* add fixed table but scrollable content by creating two separate tables */
 
 .bs-sidenav > li > a {
   color: black;
@@ -89,12 +86,19 @@ th#patient-index-action-header {
 
 #right-column {
   background: white;
-  position: absolute;
+  position: fixed;
   left: 25%;
-  top: 50px;
-  bottom: 0;
-  right: 0;
+  top: 67px;
+  bottom: 15px;
+  padding-right: 35px;
   overflow-y: auto;  
+}
+
+#clone-patient-index-thead.group {
+width: 100%;
+position: fixed;
+display: inherit;
+background-color: white;
 }
 
 #query {
