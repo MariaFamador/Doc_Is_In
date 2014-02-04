@@ -8,11 +8,37 @@ th#patient-index-action-header {
   text-align: center;
 }
 
-#clone-patient-index-thead.group {
-width: 100%;
-position: fixed;
-display: inherit;
-background-color: white;
+#page-title {
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  z-index: 2;
+}
+
+#page-title.patient-show {
+    height: 75px;
+  }
+
+#clone-patient-index-thead.group, {
+  width: 100%;
+  position: fixed;
+  display: inherit;
+  background-color: white;
+  margin-top: 85px;
+  z-index: 1;
+}
+
+#patients-index-body {
+  overflow: auto;
+  position: absolute;
+  margin-top: 85px;
+  z-index: 0
+}
+
+#patient-tab-content, #patient-form-body {
+  position: relative;
+  margin-top: 90px;
+  z-index: 0 
 }
 
 .patient_first_name, .patient_middle_name, .patient_last_name {
@@ -40,4 +66,5 @@ select#patient_gender, .patient_gender label {
   width: 25%;
   display: inline-block;
 }
+
 

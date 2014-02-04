@@ -1,7 +1,5 @@
 
-  <h4><%= "#{@patient.full_name}" %> &nbsp;&nbsp;&nbsp;&nbsp
-  <%= link_to "Book Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-success' %>
-  </h4>
+<%= link_to "Book Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-success' %>
 
 <div>
   <% appointments = @patient.appointments %>

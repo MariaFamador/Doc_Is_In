@@ -1,19 +1,12 @@
-<div class="appointments-index">
-<% if current_user.appointments.empty? %>
-  You have no scheduled appointments.
-<% else %>
-  <div id='appointments'>
-    <div class="modal fade" id="appointmentEditModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  <div>
-<% end %>
+
+<div class="appointments-index" id="appointments-index-body">
+  <% if current_user.appointments.empty? %>
+    You have no scheduled appointments.
+  <% else %>
+    <div id='appointments' class="appointments-body">
+    <div>
+  <% end %>
+</div>
 
   
-   
+  

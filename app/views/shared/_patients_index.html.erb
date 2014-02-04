@@ -1,3 +1,10 @@
+
+<% content_for :page_title do %>
+  <div id="page-title"> 
+    <h2>Patient Records</h2><hr>
+  </div>
+<% end %>
+
 <table class='table table hover'>
   <thead id='clone-patient-index-thead' class="group">
     <tr>
@@ -11,7 +18,7 @@
 </table>
 
 <table class='table table hover'>
-  <thead id='originalpatient-index-thead'>
+  <thead id='original-patient-index-thead'>
     <tr>
       <th></th>
       <th></th>
@@ -20,7 +27,7 @@
       <th width="20%"><center></center></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="patients-index-body">
   <% @patients.each do |patient| %>
     <tr>
       <td><%= patient.id %>

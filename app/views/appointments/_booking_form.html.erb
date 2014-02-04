@@ -1,6 +1,11 @@
 <% if @patient %>
 
-  <h4><u><%= "#{@patient.full_name}"%></u></h4>
+  <div id="page-title" class="group">
+    <% content_for :page_title do %>
+      <h2><%= @patient.full_name %></h2><hr>
+    <% end %>
+  </div>
+
   <%= simple_form_for @appointment, url: appointments_path(patient_id: @patient.id), method: :post do |f| %>
     <%= f.input :starts_at_date,
                   label: "Appointment",

@@ -1,32 +1,39 @@
-<ul class="nav nav-tabs" id ="patient-show-tabs">
+<% content_for :page_title do %>
+  <div id="page-title" class='group patient-show'>
+    <h2><%= @patient.full_name %></h2><hr>
+  </div>
+<% end %>
+
+<div id="patient-tab-content">
+  <ul class="nav nav-tabs" id ="patient-show-tabs">
     <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
     <li><a href="#medical-history" data-toggle="tab">Medical History</a></li>
     <li><a href="#patient-appointments" data-toggle="tab">Appointments</a></li>
     <li><a href="#prescription" data-toggle="tab">Prescription</a></li>
     <li><a href="#doctors_notes" data-toggle="tab">Doctor's Notes</a></li>
-
   </ul>
 
 
-<div class="tab-content">
-  <div class="tab-pane active" id="profile">
-    <br>
-    <%= render 'patients/patient_profile'%> 
-  </div>
-  <div class="tab-pane" id="medical-history">
-    <br>
-    <%= render 'patients/medical_history' %>
-  </div>
-  <div class="tab-pane" id="patient-appointments">
-    <br>
-    <%= render 'appointments/patient_appointments' %>
-  </div>
-  <div class="tab-pane" id="prescription">
-    <br>
-    <%= render 'patients/prescription' %>
-  </div>
-  <div class="tab-pane" id="doctors_notes">
-    <br>
-    <%= render 'patients/doctors_notes' %>
+  <div class="tab-content">
+    <div class="tab-pane active" id="profile">
+      <br>
+      <%= render 'patients/patient_profile'%> 
+    </div>
+    <div class="tab-pane" id="medical-history">
+      <br>
+      <%= render 'patients/medical_history' %>
+    </div>
+    <div class="tab-pane" id="patient-appointments">
+      <br>
+      <%= render 'appointments/patient_appointments' %>
+    </div>
+    <div class="tab-pane" id="prescription">
+      <br>
+      <%= render 'patients/prescription' %>
+    </div>
+    <div class="tab-pane" id="doctors_notes">
+      <br>
+      <%= render 'patients/doctors_notes' %>
+    </div>
   </div>
 </div>

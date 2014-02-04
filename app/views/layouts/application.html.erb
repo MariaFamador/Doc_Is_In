@@ -16,6 +16,7 @@
           <%= render 'layouts/dashboard_panel' %> 
         </div>
         <div class="col-md-9" id='right-column'>
+          <%= content_for(:page_title) %>
           <%= render 'shared/flash_messages' %>
           <%= yield %>
         </div>
@@ -23,3 +24,4 @@
     </div>
   </body>
 </html>
+

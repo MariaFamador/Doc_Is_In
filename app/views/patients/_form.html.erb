@@ -1,8 +1,12 @@
-<% if @patient.persisted? %>
-  <h4><%= "#{@patient.full_name}"%></h4>
-<% else %>
-  <h4>Patient Registration Form</h4>
+<% if @patient.new_record? %>
+  <% content_for :page_title do %>
+    <div id="page-title"> 
+      <h2>Patient Record Form</h2><hr>
+    </div>
+  <% end %>
 <% end %>
+
+<div id="patient-form-body">
 <%= simple_form_for patient, html: { class: 'form-inline' } do |f| %>
   <div id="patient-name-gender-form">
   <%= f.input :first_name, required: true %> 
@@ -27,3 +31,4 @@
   <%= f.button :submit, "Save", class: "btn btn-primary" %>
   <%= link_to "back", back_url %>
 <% end %>
+</div>
