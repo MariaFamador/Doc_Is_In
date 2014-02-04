@@ -13,7 +13,7 @@
 
 ready = ->
   $('#appointments').fullCalendar
-    height: 550
+    height: 520
     allDayDefault: false
     slotEventOverlap: false
     defaultEventMinutes: 15
@@ -57,7 +57,7 @@ ready = ->
   $('.select2').each ->
     $(@).select2
       placeholder: "Please select..."
-      closeOnSelect: false
+      closeOnSelect: false  
 
 $(document).ready(ready)
 
