@@ -1,5 +1,7 @@
-
-<%= link_to "Book Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-success' %>
+<div>
+  <%= link_to "Book Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-success btn-sm' %>
+</div>
+<br>
 
 <div>
   <% appointments = @patient.appointments %>
@@ -11,18 +13,19 @@
         <thead>
           <tr>
             <th>Date</th>
-            <th width="23%">Time</th>
-            <th width="55%">Actions</th>
+            <th width="75%">Time</th>
           </tr>
         </thead>
         <tbody>
         <% appointments.order(:starts_at).each do |appointment| %>
           <tr>
-            <td><%= appointment.format_date %></td>
-            <td><%= appointment.format_time %></td>
             <td>
-              <%= link_to "Edit Appointment", edit_appointment_path(appointment), class: 'btn btn-primary' %>
+              <%= link_to edit_appointment_path(appointment) do %>
+                <i class="glyphicon glyphicon-edit"></i>
+              <% end %>
+              <%= "#{appointment.format_date}" %>
             </td>
+            <td><%= appointment.format_time %></td>
           </tr>
         <% end %>
         </tbody>
