@@ -16,8 +16,8 @@ th#patient-index-action-header {
 }
 
 #page-title.patient-show {
-    height: 75px;
-  }
+  height: 75px;
+}
 
 #clone-patient-index-thead.group, {
   width: 100%;
@@ -28,25 +28,24 @@ th#patient-index-action-header {
   z-index: 1;
 }
 
-#patients-index-body {
-  overflow: auto;
-  position: absolute;
-  margin-top: 85px;
-  z-index: 0
-}
-
-#patient-tab-content, #patient-form-body {
+#patient-tab-content {
   position: relative;
   margin-top: 90px;
-  z-index: 0 
+  z-index: 0; 
 }
+
+#patient-form-body {
+  position: relative;
+  margin-top: 90px;
+  z-index: 0;
+}
+
+// patient form
 
 .patient_first_name, .patient_middle_name, .patient_last_name {
   width: 25%;
   display: inline-block;
 }
-
-// patient form
 
 .patient_gender {
   width: 20%;
