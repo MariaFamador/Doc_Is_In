@@ -1,4 +1,37 @@
-<div id="edit_patient_form"> 
-  <%= render 'form' %>
+<div id="edit-patient-form"> 
+  <% if @patient.new_record? %>
+    <% content_for :page_title do %>
+      <div id="page-title"> 
+        <h2>Patient Record Form</h2><hr>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div id="patient-edit-form-body">
+  <%= simple_form_for patient, html: { class: 'form-inline' } do |f| %>
+    <div id="patient-name-gender-form">
+    <%= f.input :first_name, required: true %> 
+    <%= f.input :middle_name %>
+    <%= f.input :last_name, required: true %>
+    <%= f.input :gender, collection: %w[Male Female], input_html: { class: 'select2', multiple: false } %>
+    </div>
+    <div id="-dob-address-phonumber-form">
+    <%= f.input :dob, label: "Date of Birth",
+                        as: :date,
+                      start_year: Date.today.year - 90,
+                      end_year: Date.today.year,
+                      order: [:day,:month, :year],
+                      required: true %>
+    <%= f.input :address %>
+    <%= f.input :phone_number, label: "Phone number" %>
+    <%= f.input :user_id, as: :hidden,
+                          input_html: { value: current_user.id },
+                          required: true %>
+    </div>
+    <br>
+    <%= f.button :submit, "Save", class: "btn btn-primary" %>
+    <%= link_to "back", back_url %>
+  <% end %>
+  </div>
 </div>
 

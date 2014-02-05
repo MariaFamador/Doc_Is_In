@@ -16,7 +16,7 @@ th#patient-index-action-header {
 }
 
 #page-title.patient-show {
-  height: 75px;
+  height: 77px;
 }
 
 #clone-patient-index-thead.group, {
@@ -30,15 +30,22 @@ th#patient-index-action-header {
 
 #patient-tab-content {
   position: relative;
-  margin-top: 90px;
+  margin-top: 103px;
   z-index: 0; 
 }
 
-#patient-form-body {
+#patient-new-form-body {
   position: relative;
-  margin-top: 90px;
+  margin-top: 77px;
   z-index: 0;
 }
+
+#patient-edit-form-body {
+  position: relative;
+  margin-top: 0;
+  z-index: 0;
+}
+
 
 // patient form
 
