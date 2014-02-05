@@ -7,6 +7,8 @@ class AddAppointmentAtts < ActiveRecord::Migration
     add_column :appointments, :middle_name, :string
     add_column :appointments, :last_name, :string
     add_column :appointments, :doctor, :string
+    add_column :appointments, :status, :string, array: true, default: []
+    add_column :appointments, :notes, :text
   end
 end
 

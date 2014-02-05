@@ -17,6 +17,8 @@ class Appointment < ActiveRecord::Base
             :last_name,
             presence: true
 
+  STATUS = %w[Done Pending Cancelled]
+
 
   def update_starts_at
     self.starts_at = "#{starts_at_date} #{starts_at_time}".to_datetime
