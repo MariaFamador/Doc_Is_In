@@ -8,7 +8,7 @@
   <% end %>
 
   <div id="patient-edit-form-body">
-  <%= simple_form_for patient, html: { class: 'form-inline' } do |f| %>
+  <%= simple_form_for @patient, html: { class: 'form-inline' } do |f| %>
     <div id="patient-name-gender-form">
     <%= f.input :first_name, required: true %> 
     <%= f.input :middle_name %>
