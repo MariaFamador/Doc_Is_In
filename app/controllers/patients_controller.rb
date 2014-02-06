@@ -88,8 +88,6 @@ class PatientsController < ApplicationController
       appointments_attributes: [
         :notes,
         :id,
-        :starts_at,
-        status: []
       ]
     )
   end
