@@ -23,12 +23,13 @@
               <%= link_to edit_appointment_path(appointment) do %>
                 <i class="glyphicon glyphicon-pencil"></i>
               <% end %>
-              <%= link_to appointment_path(appointment.id), method: :delete do %>
+              <%= link_to appointment_path(appointment.id, tab: "patient-appointments" ), method: :delete do %>
                 <i class="glyphicon glyphicon-remove danger"></i>
               <% end %>
               <%= "#{appointment.format_date}" %>
             </td>
             <td><%= appointment.format_time %></td>
+            <td><%= appointment.status %></td>
           </tr>
         <% end %>
         </tbody>

@@ -6,7 +6,7 @@
     <% end %>
   </div>
 
-  <%= simple_form_for @appointment, url: appointments_path(patient_id: @patient.id), method: :post do |f| %>
+  <%= simple_form_for @appointment, url: appointments_path(patient_id: @patient.id, tab: "patient-appointments"), method: :post do |f| %>
     <%= f.input :starts_at_date,
                   label: "Appointment",
                   as: :string,

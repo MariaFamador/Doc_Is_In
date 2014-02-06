@@ -59,5 +59,20 @@ ready = ->
       placeholder: "Please select..."
       closeOnSelect: false  
 
-$(document).ready(ready)
+  if $('.nav-tabs')
+    $('.nav-tabs a').on 'shown.bs.tab', (e)->
+      tab = $(e.target).attr('href')
+      if window.location.hash.length == 0 && window.location.search.length == 0
+        window.location.hash = tab
 
+  hash = window.location.hash
+  search = window.location.search
+  if hash
+    tab_hash = hash.split('#')[1]
+    $("a[href=##{tab_hash}]").tab('show')
+  else if search
+    tab_search = search.split('=')[1]
+    $("a[href=##{tab_search}]").tab('show')
+    
+ 
+$(document).ready(ready)

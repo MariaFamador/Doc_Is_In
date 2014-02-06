@@ -2,6 +2,7 @@
   <h3>No appointments have been scheduled.</h3>
 <% else %>
     <%= simple_form_for @patient do |f| %>
+    <%= simple_form_for @patient, url: patient_path(@patient, tab: 'doctors_notes'), method: :patch do |f| %>
     
     <%= f.simple_fields_for :appointments do |m| %>
       <%= m.input :notes, label: "#{m.object.format_date}" %>

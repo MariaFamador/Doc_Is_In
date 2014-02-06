@@ -1,7 +1,7 @@
 <section id='medical-history'>
     <div>
 
-      <%= simple_form_for @patient do |f| %>
+      <%= simple_form_for @patient, url: patient_path(@patient, tab: "medical-history") do |f| %>
 
         <%= f.simple_fields_for :medical_history do |m| %>
           <%= m.input :allergies, collection: @allergies, input_html: { class: 'select2', multiple: true } %>

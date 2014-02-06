@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = @patient.appointments.new(appointment_params)
     if @appointment.save 
-      redirect_to appointments_path, notice: "Appointment booked."
+      redirect_to patient_path(@patient, get_tab), notice: "Appointment booked."
     else
       render :new
     end
@@ -31,8 +31,9 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+    patient = @appointment.patient
     @appointment.destroy
-    redirect_to :back, notice: "Appointment cancelled."
+    redirect_to patient_path(patient, get_tab), notice: "Appointment cancelled."
   end
 
   private
