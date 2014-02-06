@@ -7,5 +7,7 @@ class ChangeMedicalHistoryTable < ActiveRecord::Migration
     add_column :medical_histories, :family_history, :text
     add_column :medical_histories, :surgery_and_hospitalization, :text
     add_column :medical_histories, :notes, :text
+
+    remove_column :medical_histories, :notes, :text
   end
 end

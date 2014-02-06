@@ -1,12 +1,12 @@
 class Appointment < ActiveRecord::Base
   extend TimeSplitter::Accessors
   split_accessor :starts_at
-  attr_accessor :starts_at_date, :starts_at_time
+  attr_accessor :starts_at_date, :starts_at_time, :form
 
   belongs_to :user
   belongs_to :patient
 
-  before_create :update_starts_at
+  before_validation :update_starts_at, if: -> { form != "notes" }
 
   validates :patient,
             :user,
