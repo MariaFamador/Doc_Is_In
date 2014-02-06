@@ -6,7 +6,7 @@
 <div>
   <% appointments = @patient.appointments %>
   <% if appointments.empty? %>
-    No appointments have been scheduled.
+    <h3>No appointments have been scheduled.</h3>
   <% else %>
     <div class="patient-appointments-table" %>
       <table class="table table-hover">
@@ -22,6 +22,9 @@
             <td>
               <%= link_to edit_appointment_path(appointment) do %>
                 <i class="glyphicon glyphicon-pencil"></i>
+              <% end %>
+              <%= link_to appointment_path(appointment.id), method: :delete do %>
+                <i class="glyphicon glyphicon-remove danger"></i>
               <% end %>
               <%= "#{appointment.format_date}" %>
             </td>
