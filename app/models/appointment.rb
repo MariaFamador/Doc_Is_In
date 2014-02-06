@@ -20,14 +20,14 @@ class Appointment < ActiveRecord::Base
 
 
   def update_starts_at
-    self.starts_at = "#{starts_at_date} #{starts_at_time}".to_datetime
+    self.starts_at = "#{self.starts_at_date} #{self.starts_at_time}".to_datetime
   end
 
   def format_date
-    "#{starts_at.strftime("%A, %d %b")}"
+    "#{self.starts_at.strftime("%A, %d %b")}"
   end
 
   def format_time
-    "#{starts_at.strftime("%H:%M")}"
+    "#{self.starts_at.strftime("%H:%M")}"
   end
 end
