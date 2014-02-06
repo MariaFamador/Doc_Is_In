@@ -24,8 +24,8 @@
               <%= link_to edit_appointment_path(appointment) do %>
                 <i class="glyphicon glyphicon-pencil"></i>
               <% end %>
-              <%= link_to appointment_path(appointment.id, tab: "patient-appointments" ), method: :delete do %>
-                <i class="glyphicon glyphicon-remove danger"></i>
+              <%= link_to cancel_appointment_path(appointment.id, tab: "patient-appointments" ), method: :patch do %>
+                <i class="glyphicon glyphicon-remove"></i>
               <% end %>
               <%= "#{appointment.format_date}" %>
             </td>

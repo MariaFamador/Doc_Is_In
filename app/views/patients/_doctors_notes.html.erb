@@ -5,8 +5,6 @@
     
     <%= f.simple_fields_for :appointments do |m| %>
       <%= m.input :notes, label: "#{m.object.format_date} - #{m.object.status}" %>
-
-      <%= m.input :form, as: :hidden, input_html: { value: "notes" } %>
     <% end  %>
 
     <br>

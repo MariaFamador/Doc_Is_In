@@ -30,6 +30,12 @@ class AppointmentsController < ApplicationController
     @appointments = Appointment.all
   end
 
+  def cancel
+    patient = @appointment.patient
+    @appointment.kancel
+    redirect_to patient_path(patient, get_tab), notice: "Appointment cancelled."
+  end
+
   def destroy
     patient = @appointment.patient
     @appointment.destroy
@@ -50,7 +56,9 @@ class AppointmentsController < ApplicationController
       :doctor,
       :notes,
       :starts_at,
-      :status
+      :status,
+      :cancel,
+      :form
     )
   end
 

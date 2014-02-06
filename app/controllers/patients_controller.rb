@@ -88,7 +88,7 @@ class PatientsController < ApplicationController
       appointments_attributes: [
         :notes,
         :id,
-        :form
+        :cancel
       ]
     )
   end

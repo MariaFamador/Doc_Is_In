@@ -6,7 +6,10 @@ DocIsIn::Application.routes.draw do
     resources :medical_histories, on: :member
   end
 
-  resources :appointments
+  resources :appointments do
+    patch :cancel, on: :member
+  end
+
   devise_scope :user do
     root to: "devise/sessions#new"
   end

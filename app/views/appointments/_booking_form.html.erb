@@ -26,6 +26,8 @@
     <%= f.input :last_name, as: :hidden,
                 input_html: { value: @patient.last_name },
                 required: true %>
+    <%= f.input :form, as: :hidden, input_html: { value: "book_appointment" } %>
+
     <br>
     <%= f.button :submit, "Save", class: 'btn btn-primary' %>
     <%= link_to "back", back_url %>

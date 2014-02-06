@@ -6,7 +6,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :user
   belongs_to :patient
 
-  before_validation :update_starts_at, if: -> { form != "notes" }
+  before_validation :update_starts_at, if: -> { form == "book_appointment" }
 
   validates :patient,
             :user,
@@ -14,7 +14,7 @@ class Appointment < ActiveRecord::Base
             :last_name,
             presence: true
 
-  validates :starts_at_time, :starts_at_date, presence: true, if: -> { form != "notes" }
+  validates :starts_at_time, :starts_at_date, presence: true, if: -> { form == "book_appointment" }
 
 
   def update_starts_at
@@ -33,15 +33,18 @@ class Appointment < ActiveRecord::Base
     "#{format_date} #{format_time}".to_time
   end
 
+  def kancel
+    form = "cancel"
+    update(cancel: true)
+  end
+
   def status
-    if local_time.past?
+    if self.cancel == true
+      "Cancelled"
+    elsif local_time.past?
       "Done"
     elsif local_time.future?
       "Pending"
     end
-  end
-
-  def cancelled_status=(value)
-    self.status = "Cancelled"
   end
 end
