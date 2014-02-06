@@ -48,7 +48,8 @@ class AppointmentsController < ApplicationController
       :last_name,
       :doctor,
       :notes,
-      :status
+      :status,
+      :starts_at
     )
   end
 

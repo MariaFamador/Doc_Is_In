@@ -6,16 +6,15 @@ class Appointment < ActiveRecord::Base
   belongs_to :user
   belongs_to :patient
 
-  before_validation :update_starts_at
+  before_create :update_starts_at
 
-  validates :starts_at,
-            :starts_at_time,
-            :starts_at_date,
-            :patient,
+  validates :patient,
             :user,
             :first_name,
             :last_name,
             presence: true
+
+  validates :starts_at_time, :starts_at_date, presence: true, if: -> { new_record? }
 
   STATUS = %w[Done Pending Cancelled]
 

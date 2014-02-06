@@ -21,7 +21,6 @@ class PatientsController < ApplicationController
     @medication_and_supplements = @medical_history.medication_and_supplements
     @surgery_and_hospitalization = @medical_history.surgery_and_hospitalization
     @family_history = @medical_history.family_history
-    @notes = @medical_history.notes
   end
 
   def index
@@ -84,8 +83,15 @@ class PatientsController < ApplicationController
         :family_history,
         :notes,
         allergies: [],
-        previous_diseases: [],   
-      ])
+        previous_diseases: []
+      ],
+      appointments_attributes: [
+        :notes,
+        :id,
+        :starts_at,
+        status: []
+      ]
+    )
   end
 
   def get_patient

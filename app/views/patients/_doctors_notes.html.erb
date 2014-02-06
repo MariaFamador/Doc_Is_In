@@ -1,5 +1,10 @@
 <%= simple_form_for @patient do |f| %>
-  <%= f.simple_fields_for :medical_history do |m| %>
-    <%= m.input :notes, label: "Doctor's Notes" %>
-  <% end %>
+
+  <%= f.simple_fields_for :appointments do |m| %>
+    <%= m.input :notes, label: "#{m.object.starts_at}" %>
+    <%= m.input :starts_at, as: :hidden, input_html: { value: m.object.starts_at} %>
+  <% end  %>
+
+  <br>
+  <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
