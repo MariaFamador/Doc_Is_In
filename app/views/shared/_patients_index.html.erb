@@ -1,14 +1,14 @@
 
 <% content_for :page_title do %>
   <div> 
-    <h2>Patient Records</h2><hr>
+    <h2><i class="glyphicon glyphicon-leaf"></i>  Patient Records</h2>
+    <hr>
   </div>
 <% end %>
 
 <table class='table table hover'>
   <thead id='original-patient-index-thead'>
     <tr>
-      <th>ID</th>
       <th>Patient</th>
       <th width="18%">Date of Birth</th>
       <th width="35%">Address</th>
@@ -18,7 +18,6 @@
   <tbody>
   <% @patients.each do |patient| %>
     <tr>
-      <td><%= patient.id %>
       <td><%= link_to "#{patient.full_name}", patient_path(patient.id) %></td>
       <td><%= patient.dob%></td>
       <td><%= patient.address%></td>
