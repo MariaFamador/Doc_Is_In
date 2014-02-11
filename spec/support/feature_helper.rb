@@ -16,6 +16,10 @@ module FeatureHelper
     expect(page).to have_content("Sign in")
     expect(page).to have_content("Signed out successfully.")
   end
+
+  def page!
+    save_and_open_page
+  end
 end
 
 RSpec.configure do |config|
