@@ -13,7 +13,7 @@ feature "Appointments" do
     scenario "user can create appointments for patients" do
       patient
 
-      visit root_path
+      visit dashboards_path
       click_on "Patient Records"
       expect(page).to have_content(patient.full_name)
       click_on "Book Appointment"
@@ -22,33 +22,53 @@ feature "Appointments" do
       click_on "Save"
 
       expect(page).to have_content("Appointment booked.")
-      expect(page).to have_content("Thursday, 30 JAN at 08:30")
+      expect(page).to have_content("Thursday, 30 Jan")
+      expect(page).to have_content("8:30")
     end
 
     scenario "user can edit appointments for patients" do
       patient
       appointment
 
-      visit root_path
-      click_on "Appointments"
-      click_on "Edit Appointment"
+      visit dashboards_path
+      click_on "Patient Records"
+      click_on patient.full_name
+      find("#patient-appointments").click
+      find(".edit-appointment").click
       fill_in "Appointment", with: "Tuesday, 28 Jan, 2014"
       fill_in "Starts at time", with: "9:00"
       click_on "Save"
 
       expect(page).to have_content("Appointment booked.")
-      expect(page).to have_content("Tuesday, 28 JAN at 09:00")
+      expect(page).to have_content("Tuesday, 28 Jan")
+      expect(page).to have_content("9:00")
     end
 
-    scenario "user can delete appointments for patients" do
+    scenario "user can cancel appointments for patients" do
       patient
       appointment
 
-      visit root_path
-      click_on "Appointments"
-      click_on "Cancel"
+      visit dashboards_path
+      click_on "Patient Records"
+      click_on patient.full_name
+      find("#patient-appointments").click
+      find(".cancel-appointment").click
 
       expect(page).to have_content("Appointment cancelled.")
+      expect(page).to have_content("Cancelled")
+    end
+  end
+
+  context "appointment status" do
+
+    scenario "date has passed" do
+      appointment
+    end
+
+    xscenario "date is in the future" do
+    end
+
+    xscenario "date is cancelled" do  
     end
   end
 end
