@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :get_patient, only: [:show, :update, :new, :create]
+  before_action :get_patient, only: [:update, :new, :create]
   before_action :get_appointment, except: [:new, :create, :index]
 
   def new
