@@ -20,17 +20,18 @@
         <tbody>
         <% appointments.order(:starts_at).each do |appointment| %>
           <tr>
-            <td>
-              <%= link_to edit_appointment_path(appointment) do %>
+            <td width="35%">
+              <%= link_to edit_appointment_path(appointment), class: "edit-appointment" do %>
                 <i class="glyphicon glyphicon-pencil"></i>
               <% end %>
-              <%= link_to cancel_appointment_path(appointment.id, tab: "patient-appointments" ), method: :patch do %>
+              <%= link_to cancel_appointment_path(appointment.id, tab: "patient-appointments" ), class: "cancel-appointment", method: :patch do %>
                 <i class="glyphicon glyphicon-remove"></i>
               <% end %>
               <%= "#{appointment.format_date}" %>
             </td>
-            <td><%= appointment.format_time %></td>
-            <td><%= appointment.status %></td>
+            <td width="15%"><%= appointment.format_time %></td>
+            <td width="15%"><%= appointment.status %></td>
+            <td width="20%"><%= link_to "Delete", appointment_path(appointment), method: :delete, class: "btn btn-danger" %>
           </tr>
         <% end %>
         </tbody>
