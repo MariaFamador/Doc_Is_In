@@ -39,7 +39,7 @@ class AppointmentsController < ApplicationController
   def destroy
     patient = @appointment.patient
     @appointment.destroy
-    redirect_to patient_path(patient, get_tab), notice: "Appointment cancelled."
+    redirect_to patient_path(patient, get_tab), notice: "Appointment deleted."
   end
 
   private

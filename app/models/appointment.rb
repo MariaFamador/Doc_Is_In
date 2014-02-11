@@ -6,7 +6,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :user
   belongs_to :patient
 
-  before_validation :update_starts_at, if: -> { form == "book_appointment" }
+  before_validation :update_starts_at, if: -> { form == "booking_form" }
 
   validates :patient,
             :user,
@@ -14,8 +14,7 @@ class Appointment < ActiveRecord::Base
             :last_name,
             presence: true
 
-  validates :starts_at_time, :starts_at_date, presence: true, if: -> { form == "book_appointment" }
-
+  validates :starts_at_time, :starts_at_date, presence: true, if: -> { form == "booking_form" }
 
   def update_starts_at
     self.starts_at = "#{starts_at_date} #{starts_at_time}".to_datetime
