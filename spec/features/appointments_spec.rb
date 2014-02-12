@@ -57,18 +57,29 @@ feature "Appointments" do
       expect(page).to have_content("Appointment cancelled.")
       expect(page).to have_content("Cancelled")
     end
-  end
 
-  context "appointment status" do
-
-    scenario "date has passed" do
+    scenario "user can delete appointments for patients" do
+      patient
       appointment
+
+      visit patient_path(patient)
+      find('#patient-appointments').click
+      click_on "Delete"
+
+      expect(page).to have_content('Appointment deleted.')
     end
 
-    xscenario "date is in the future" do
-    end
+    scenario "user can add doctor's notes per appointment" do
+      patient
+      appointment
 
-    xscenario "date is cancelled" do  
+      visit patient_path(patient)
+      find('#doctors_notes').click
+      fill_in "patient_appointments_attributes_0_notes", with: "Test"
+      click_on "Update Patient"
+
+      expect(page).to have_content("Test")
+      expect(page).to have_content("Changes saved.")
     end
   end
 end
