@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature MedicalHistory do
+feature "Managing Medical History" do
   let(:user) { create(:user) }
   let(:patient) { create(:patient) }
 

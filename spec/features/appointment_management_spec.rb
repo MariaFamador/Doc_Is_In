@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Appointments" do 
+feature "Managing Appointments" do 
   let(:user) { create(:user) }
   let(:patient) { create(:patient, user: user) }
   let(:appointment) { create(:appointment, user: user, patient: patient) }
@@ -67,19 +67,6 @@ feature "Appointments" do
       click_on "Delete"
 
       expect(page).to have_content('Appointment deleted.')
-    end
-
-    scenario "user can add doctor's notes per appointment" do
-      patient
-      appointment
-
-      visit patient_path(patient)
-      find('#doctors_notes').click
-      fill_in "patient_appointments_attributes_0_notes", with: "Test"
-      click_on "Update Patient"
-
-      expect(page).to have_content("Test")
-      expect(page).to have_content("Changes saved.")
     end
   end
 end
