@@ -16,11 +16,13 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+    @patient = @appointment.patient
   end
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to appointments_path, notice: "Appointment changed."  
+      patient = @appointment.patient
+      redirect_to patient_path(patient, get_tab), notice: "Appointment changed."  
     else
       render :edit
     end

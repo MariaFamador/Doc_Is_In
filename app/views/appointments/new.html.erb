@@ -1,1 +1,7 @@
-<%= render partial: 'appointments/booking_form', locals: { patient: @patient, appointment: @appointment } %>
+<% content_for :page_title do %>
+  <h2>New Appointment for <%= @patient.full_name %></h2><hr>
+<% end %>
+
+<%= simple_form_for @appointment, url: appointments_path(@appointment, patient_id: @patient.id, tab: "patient-appointments"), method: :post do |f| %>
+  <%= render partial: 'appointments/booking_form', locals: { f: f, patient: @patient, appointment: @appointment } %>
+<% end %>

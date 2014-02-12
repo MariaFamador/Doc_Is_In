@@ -1,27 +1,18 @@
-<% if patient || appointment.patient %>
+<%= f.input :starts_at_date,
+              label: "Appointment",
+              as: :string,
+              required: true, input_html: { class: "datepicker", value: (f.object.format_date if f.object.starts_at) } %>
+<%= f.input :starts_at_time, 
+              as: :string, 
+              required: true, input_html: { class: "timepicker", value: (f.object.format_time if f.object.starts_at) } %>
+<%= f.input :user_id, as: :hidden,
+            input_html: { value: current_user.id },
+            required: true %>
+<%= f.input :patient_id, as: :hidden,
+            input_html: { value: patient.id },
+            required: true %>
+<%= f.input :form, as: :hidden, input_html: { value: "booking_form" } %>
 
-<% content_for :page_title do %>
-  <h2><%= patient.full_name %></h2><hr>
-<% end %>
-
-  <%= simple_form_for appointment, url: appointments_path(appointment, patient_id: patient.id, tab: "patient-appointments"), method: :post do |f| %>
-    <%= f.input :starts_at_date,
-                  label: "Appointment",
-                  as: :string,
-                  required: true, input_html: { class: "datepicker", value: (f.object.format_date if f.object.starts_at) } %>
-    <%= f.input :starts_at_time, 
-                  as: :string, 
-                  required: true, input_html: { class: "timepicker", value: (f.object.format_time if f.object.starts_at) } %>
-    <%= f.input :user_id, as: :hidden,
-                input_html: { value: current_user.id },
-                required: true %>
-    <%= f.input :patient_id, as: :hidden,
-                input_html: { value: patient.id },
-                required: true %>
-    <%= f.input :form, as: :hidden, input_html: { value: "booking_form" } %>
-
-    <br>
-    <%= f.button :submit, "Save", class: 'btn btn-primary' %>
-    <%= link_to "back", back_url %>
-  <% end %> 
-<% end %>
+<br>
+<%= f.button :submit, "Save", class: 'btn btn-primary' %>
+<%= link_to "back", back_url %>
