@@ -13,6 +13,7 @@ class Appointment < ActiveRecord::Base
             presence: true
 
   validates :starts_at_time, :starts_at_date, presence: true, if: -> { form == "booking_form" }
+  validate :already_booked, if: -> { form == "booking_form" }
 
   def update_starts_at
     self.starts_at = "#{starts_at_date} #{starts_at_time}".to_datetime
@@ -42,6 +43,20 @@ class Appointment < ActiveRecord::Base
       "Done"
     elsif local_time.future?
       "Pending"
+    end
+  end
+
+  def ends_at
+    self.starts_at + 14.minutes
+  end
+
+  private
+
+  def already_booked
+    appointment_durations = Appointment.pluck(:starts_at).map {|x| x..(x + 15.minutes) }
+    if appointment_durations.any? {|a| a.cover?(starts_at) } || 
+      appointment_durations.any? {|a| a.cover?(ends_at) }
+      errors.add(:starts_at_time, "already booked")
     end
   end
 end
