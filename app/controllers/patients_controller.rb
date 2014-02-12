@@ -82,7 +82,6 @@ class PatientsController < ApplicationController
         :medication_and_supplements,
         :surgery_and_hospitalization,
         :family_history,
-        :notes,
         allergies: [],
         previous_diseases: []
       ],

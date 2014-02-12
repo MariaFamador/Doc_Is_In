@@ -1,39 +1,41 @@
-<% content_for :page_title do %>
-  <div id="page-title">
-    <h2><i class="glyphicon glyphicon-user">&nbsp</i><%= @patient.full_name %></h2><hr>
-  </div>
-<% end %>
-
 <div>
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-  <li><a href="#medical-history" data-toggle="tab"><i class="glyphicon glyphicon-th-list"></i> Medical History</a></li>
-    <li><a href="#patient-appointments" data-toggle="tab"><i class="glyphicon glyphicon-time"></i> Appointments</a></li>
-    <li><a href="#prescription" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Prescription</a></li>
-    <li><a href="#doctors_notes" data-toggle="tab"><i class="glyphicon glyphicon-bookmark"></i> Doctor's Notes</a></li>
-  </ul>
+  <% content_for :page_title do %>
+    <div id="page-title">
+      <h2><i class="glyphicon glyphicon-user">&nbsp</i><%= @patient.full_name %></h2><hr>
+    </div>
+  <% end %>
+
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+    <li><a href="#medical-history" data-toggle="tab"><i class="glyphicon glyphicon-th-list"></i> Medical History</a></li>
+      <li><a href="#patient-appointments" data-toggle="tab"><i class="glyphicon glyphicon-time"></i> Appointments</a></li>
+      <li><a href="#prescription" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Prescription</a></li>
+      <li><a href="#doctors_notes" data-toggle="tab"><i class="glyphicon glyphicon-bookmark"></i> Doctor's Notes</a></li>
+    </ul>
 
 
-  <div class="tab-content">
-    <div class="tab-pane active" id="profile">
-      <br>
-      <%= render 'patients/patient_profile'%> 
-    </div>
-    <div class="tab-pane" id="medical-history">
-      <br>
-      <%= render 'patients/medical_history' %>
-    </div>
-    <div class="tab-pane" id="patient-appointments">
-      <br>
-      <%= render 'appointments/patient_appointments' %>
-    </div>
-    <div class="tab-pane" id="prescription">
-      <br>
-      <%= render 'patients/prescription' %>
-    </div>
-    <div class="tab-pane" id="doctors_notes">
-      <br>
-      <%= render 'patients/doctors_notes' %>
+    <div class="tab-content">
+      <div class="tab-pane active" id="profile">
+        <br>
+        <%= render 'patients/patient_profile'%> 
+      </div>
+      <div class="tab-pane" id="medical-history">
+        <br>
+        <%= render 'patients/medical_history' %>
+      </div>
+      <div class="tab-pane" id="patient-appointments">
+        <br>
+        <%= render 'appointments/patient_appointments' %>
+      </div>
+      <div class="tab-pane" id="prescription">
+        <br>
+        <%= render 'patients/prescription' %>
+      </div>
+      <div class="tab-pane" id="doctors_notes">
+        <br>
+        <%= render 'patients/doctors_notes' %>
+      </div>
     </div>
   </div>
 </div>

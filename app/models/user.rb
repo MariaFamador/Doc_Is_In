@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :role, presence: true, if: -> { id }
 
   attr_accessor :appointments_attributes
-  has_many :patients, dependent: :destroy
+  has_many :patients
   has_many :appointments, dependent: :destroy
   accepts_nested_attributes_for :appointments, allow_destroy: true
 

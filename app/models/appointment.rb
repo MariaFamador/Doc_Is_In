@@ -10,8 +10,6 @@ class Appointment < ActiveRecord::Base
 
   validates :patient,
             :user,
-            :first_name,
-            :last_name,
             presence: true
 
   validates :starts_at_time, :starts_at_date, presence: true, if: -> { form == "booking_form" }
@@ -29,7 +27,7 @@ class Appointment < ActiveRecord::Base
   end
 
   def local_time
-    "#{format_date} #{format_time}".to_time
+    "#{starts_at.strftime("%A, %d %b %H:%M" )}".to_time
   end
 
   def kancel

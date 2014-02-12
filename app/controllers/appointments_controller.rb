@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
   before_action :get_appointment, except: [:new, :create, :index]
 
   def new
-    @appointment = @patient.appointments.new
+    @appointment = @patient.appointments.build
   end
 
   def create
@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
     if @appointment.update(appointment_params)
       redirect_to appointments_path, notice: "Appointment changed."  
     else
-      render :edit, alert: 'Unable to save appointment'
+      render :edit
     end
   end
 

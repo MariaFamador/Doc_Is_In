@@ -85,15 +85,4 @@ feature 'Users' do
       expect(page).to have_content("Sign in")
     end 
   end
-  # TODO: Set up elastic search for tests at
-  # https://github.com/karmi/retire/wiki/Integration-Testing-Rails-Models-with-Tire
-  # scenario "can search patient records" do
-  #   patient
-  #   patient2
-
-  #   visit patients_path
-  #   fill_in "query", with: patient.first_name
-  #   click_on "Go"
-  #   expect(page).to have_content(patient.full_name)
-  # end
 end

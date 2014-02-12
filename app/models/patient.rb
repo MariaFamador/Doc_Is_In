@@ -3,7 +3,7 @@ class Patient < ActiveRecord::Base
 
   belongs_to :user
   has_many :appointments, dependent: :destroy
-  has_one :medical_history
+  has_one :medical_history, dependent: :destroy
 
   accepts_nested_attributes_for :appointments, allow_destroy: true
   accepts_nested_attributes_for :medical_history
