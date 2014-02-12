@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }, 
             if: -> { new_record? }
-  validates :first_name, :last_name, presence: true, length: { maximum: 50 }, if: -> { id }
+  validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   validates :password, :password_confirmation, presence: true, length: { minimum: 8 }, if: -> { new_record? }
   validates :role, presence: true, if: -> { id }
 
@@ -19,5 +19,4 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :appointments, allow_destroy: true
 
   before_save { email.downcase! }
-  
 end
