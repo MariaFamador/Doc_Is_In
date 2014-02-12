@@ -39,7 +39,7 @@ feature "Appointments" do
       fill_in "Starts at time", with: "9:00"
       click_on "Save"
 
-      expect(page).to have_content("Appointment booked.")
+      expect(page).to have_content("Appointment changed.")
       expect(page).to have_content("Tuesday, 28 Jan")
       expect(page).to have_content("9:00")
     end
