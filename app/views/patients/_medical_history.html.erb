@@ -1,4 +1,4 @@
-<section id='medical-history'>
+<div id='medical_history'>
     <div>
 
       <%= simple_form_for @patient, url: patient_path(@patient, tab: "medical-history") do |f| %>
@@ -6,8 +6,8 @@
         <%= f.simple_fields_for :medical_history do |m| %>
           <%= m.input :allergies, collection: @allergies, input_html: { class: 'select2', multiple: true } %>
           <%= m.input :previous_diseases, collection: @previous_diseases, input_html: { class: 'select2', multiple: true } %>
-          <%= m.input :medication_and_supplements, hint: 'medication or supplement and dosage' %>
-          <%= m.input :surgery_and_hospitalization, hint: 'illness - including dates' %>
+          <%= m.input :medication_and_supplements, label: "Medication and Supplements", hint: 'medication or supplement and dosage' %>
+          <%= m.input :surgery_and_hospitalization, label: "Surgeries and Hospitalization", hint: 'illness - including dates' %>
           <%= m.input :family_history, hint: 'state condition and relationship' %>
 
         <% end %>
@@ -16,5 +16,5 @@
       <% end %>
 
     </div>
-</section>
+</div>
 
