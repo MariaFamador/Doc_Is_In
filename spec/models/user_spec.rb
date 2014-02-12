@@ -28,7 +28,7 @@ describe User do
   end
 
   context "Associations" do
-    it { should have_many(:patients).dependent(:destroy) }
+    it { should have_many(:patients) }
     it { should have_many(:appointments).dependent(:destroy) }
     it { should accept_nested_attributes_for(:appointments).allow_destroy(true) }
   end

@@ -12,10 +12,10 @@ feature 'Users' do
     scenario "can create patients" do
       click_on "Patient Records"      
       click_on "Add Patient"
-      expect(page).to have_content("Patient Registration Form")
+      expect(page).to have_content("Patient Record Form")
       fill_in "First name", with: "Maria"
       fill_in "Last name", with: "Famador"
-      choose "Female"
+      select "Female"
       select '23', from: "patient_dob_3i"
       select 'January', from: "patient_dob_2i"
       select '1990', from: "patient_dob_1i"
@@ -62,7 +62,7 @@ feature 'Users' do
       expect(page).to have_content('Profile updated.')
     end
 
-    scenario "can change password" do
+    xscenario "can change password" do
       click_on ('Settings')
       click_link "Security Settings"
       expect(page).to have_content("Edit Profile")
