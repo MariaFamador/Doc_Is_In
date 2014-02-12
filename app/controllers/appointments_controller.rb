@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :get_patient, only: [:update, :new, :create]
-  before_action :get_appointment, except: [:new, :create, :index]
+  before_action :get_appointment, except: [:new, :create, :index, :calendar, :show]
 
   def new
     @appointment = @patient.appointments.build
@@ -30,6 +30,20 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
+    @appointments.order(:starts_at)
+  end
+
+  def calendar
+    @appointments = Appointment.all
+
+    respond_to do |format|
+      format.json
+      format.html
+    end
+  end
+
+  def show
+    
   end
 
   def cancel

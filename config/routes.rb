@@ -15,4 +15,5 @@ DocIsIn::Application.routes.draw do
   end
 
   get '/dashboards/', to: 'dashboards#index'
+  get '/calendar/', to: 'appointments#calendar'
 end

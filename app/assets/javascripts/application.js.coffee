@@ -19,7 +19,7 @@ ready = ->
     defaultEventMinutes: 15
     slotMinutes: 5
     editable: true
-    events: '/appointments.json'
+    events: '/calendar.json'
     header: {
       left: 'prev, next',
       center: 'title',
