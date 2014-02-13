@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
   before_action :get_appointment, except: [:new, :create, :index, :calendar, :show]
 
   def new
-    @appointment = @patient.appointments.build
+    @appointment = @patient.appointments.new
   end
 
   def create
@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    if @appointment.update(appointment_params)
+    if @appointment.update(appointment_params) 
       patient = @appointment.patient
       redirect_to patient_path(patient, get_tab), notice: "Appointment changed."  
     else

@@ -14,7 +14,6 @@ feature "Updating doctor's notes" do
 
       visit patient_path(patient)
       find('#doctors_notes').click
-      page!
       fill_in "patient_appointments_attributes_0_notes", with: "Test"
       click_on "Update Patient"
 

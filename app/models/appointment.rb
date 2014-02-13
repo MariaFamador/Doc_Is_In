@@ -50,13 +50,12 @@ class Appointment < ActiveRecord::Base
     self.starts_at + 15.minutes
   end
 
-  private
-
   def already_booked
     appointment_durations = Appointment.pluck(:starts_at).map {|x| x..(x + 14.minutes) }
     if appointment_durations.any? {|a| a.cover?(starts_at) } || 
       appointment_durations.any? {|a| a.cover?(ends_at) }
       errors.add(:starts_at_time, "already booked")
+      errors.add(:starts_at_date, "already booked")
     end
   end
 end
