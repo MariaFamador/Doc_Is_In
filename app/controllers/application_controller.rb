@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     request.referer
   end
 
+  def after_sign_in_path_for(resource_or_scope)
+    dashboards_path
+  end 
+  
   protected
 
   def configure_permitted_parameters
