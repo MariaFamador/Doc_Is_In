@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Appointment do
-  let(:appointment) { create(:appointment) }
+  let(:patient) { create(:patient) }
+  let(:user) { create(:user) }
+  let(:appointment) { create(:appointment, user: user, patient: patient) }
 
   context "Validations" do
     it { should validate_presence_of(:patient) }
@@ -19,6 +21,27 @@ describe Appointment do
       end
       it { should validate_presence_of(:starts_at_time)}
       it { should validate_presence_of(:starts_at_date)}
+    end
+
+    describe "when booking appointments" do
+      context "booking times which are already taken" do
+        it "should not be valid" do
+          dup_appointment = build(:appointment, user: user, patient: patient, form: 'booking_form')
+          dup_appointment.starts_at = appointment.starts_at
+          dup_appointment.save
+
+          expect(dup_appointment).to be_invalid
+        end
+      end
+
+      context "booking times which have not been taken" do
+        it "should be valid" do
+          appointment2 = build(:appointment, user: user, patient: patient, form: 'booking_form', starts_at: Date.tomorrow.to_datetime)
+          appointment.save
+
+          expect(appointment2).to be_valid
+        end
+      end
     end
   end
 
