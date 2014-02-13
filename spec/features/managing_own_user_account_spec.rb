@@ -16,7 +16,7 @@ feature "Managing it's own user account" do
     expect(page).to have_content('Profile updated.')
   end
 
-  xscenario "can change password" do
+  scenario "can change password" do
     click_on ('Settings')
     click_link "Security Settings"
     expect(page).to have_content("Edit Profile")
@@ -27,6 +27,7 @@ feature "Managing it's own user account" do
     click_on 'Update'
 
     expect(page).to have_content("You updated your account successfully.")
+    expect(page).to have_content("Edit Profile")
   end
 
   scenario "can delete own account", js: true do
