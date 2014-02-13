@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
             if: -> { new_record? }
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   validates :password, :password_confirmation, presence: true, length: { minimum: 8 }, if: -> { new_record? }
-  validates :role, presence: true, if: -> { id }
 
   attr_accessor :appointments_attributes
   has_many :patients
