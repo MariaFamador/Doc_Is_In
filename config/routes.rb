@@ -1,6 +1,8 @@
 DocIsIn::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
+
   resources :users
+
   resources :patients do
     post :search, on: :collection
     resources :medical_histories, on: :member

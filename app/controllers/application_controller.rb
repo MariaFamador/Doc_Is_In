@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   helper_method :back_url
 
-  def after_sign_in_path_for(resource_or_scope)
-    dashboards_path
-  end 
-
   def back_url
     request.referer
   end
