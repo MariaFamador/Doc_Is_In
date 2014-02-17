@@ -19,10 +19,16 @@
       <% end %>
     </li>
     <li>
-      <%= link_to "Appointments", appointments_path %>
+      <%= link_to appointments_path do %>
+        <i class="fa fa-clock-o"></i>
+        <%= "  Appointments" %>
+      <% end %>
     </li>
     <li>
-      <%= link_to "Prescription Generator", "#" %>
+      <%= link_to "#" do %>
+        <i class="fa fa-medkit"></i>
+        <%= "  Prescription Generator" %>
+      <% end %>
     </li>
   </ul>
   <br>

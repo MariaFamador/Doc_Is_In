@@ -13,7 +13,7 @@
 
 ready = ->
   $('#appointments').fullCalendar
-    height: 520
+    height: 600
     allDayDefault: false
     slotEventOverlap: false
     defaultEventMinutes: 15
@@ -74,5 +74,8 @@ ready = ->
   else if search
     tab_search = search.split('=')[1]
     $("a[href=##{tab_search}]").tab('show')
+
+  $('.nav-tabs li a').on 'click', (e) ->
+    history.pushState( null, null, $(this).attr('href'))
 
 $(document).ready(ready)
