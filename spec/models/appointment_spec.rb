@@ -27,7 +27,8 @@ describe Appointment do
       context "booking times which are already taken" do
         it "should not be valid" do
           dup_appointment = build(:appointment, user: user, patient: patient, form: 'booking_form')
-          dup_appointment.starts_at = appointment.starts_at
+          dup_appointment.starts_at_date = appointment.format_date
+          dup_appointment.starts_at_time = appointment.format_time
           dup_appointment.save
 
           expect(dup_appointment).to be_invalid
@@ -36,8 +37,10 @@ describe Appointment do
 
       context "booking times which have not been taken" do
         it "should be valid" do
-          appointment2 = build(:appointment, user: user, patient: patient, form: 'booking_form', starts_at: Date.tomorrow.to_datetime)
-          appointment.save
+          appointment2 = build(:appointment, user: user, patient: patient, form: 'booking_form')
+          appointment2.starts_at_date = appointment.format_date
+          appointment2.starts_at_time = Time.now
+          appointment.save 
 
           expect(appointment2).to be_valid
         end
@@ -60,6 +63,18 @@ describe Appointment do
       appointment.reload
 
       expect(appointment.starts_at).to eq "#{appointment.starts_at_date} #{appointment.starts_at_time}".to_datetime
+    end
+  end
+
+  describe "#format_date" do
+    it "formats the appointment date" do
+      expect(appointment.format_date).to eq "Thursday, 23 Jan"
+    end
+  end
+
+  describe "#format_time" do
+    it "formats the appointment time" do
+      expect(appointment.format_time).to eq "09:30"
     end
   end
 
