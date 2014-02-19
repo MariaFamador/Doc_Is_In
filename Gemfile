@@ -10,8 +10,6 @@ gem 'devise'
 gem 'fullcalendar-rails'
 gem 'pickadate-rails'
 gem 'time_splitter'
-gem 'elasticsearch'
-gem 'searchkick'
 gem 'select2-rails'
 gem 'jquery-turbolinks'
 
@@ -27,6 +25,8 @@ gem 'jbuilder', '1.0.2'
 group :development, :test do
   gem 'pry'
   gem 'ffaker'
+  gem 'searchkick'
+  gem 'elasticsearch'
 end
 
 group :test do

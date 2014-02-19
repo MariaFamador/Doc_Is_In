@@ -58,7 +58,7 @@ class PatientsController < ApplicationController
         fields: [{first_name: :word_start}, {middle_name: :word_start}, {last_name: :word_start}]
       )
     else
-      @patients = Patient.order(:last_name, :first_name)
+      @patients = current_user.patients.order(:last_name, :first_name)
     end
   end
 
