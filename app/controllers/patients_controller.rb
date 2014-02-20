@@ -74,7 +74,6 @@ class PatientsController < ApplicationController
       :age,
       :address,
       :phone_number, 
-      :doctor,
       :user_id,
       medical_history_attributes: [
         :patient_id,
@@ -87,8 +86,7 @@ class PatientsController < ApplicationController
       ],
       appointments_attributes: [
         :notes,
-        :id,
-        :cancel
+        :id
       ]
     )
   end

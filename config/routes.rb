@@ -1,6 +1,10 @@
 DocIsIn::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => :registrations }
 
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+
   resources :users
 
   resources :patients do
@@ -12,9 +16,7 @@ DocIsIn::Application.routes.draw do
     patch :cancel, on: :member
   end
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  resources :prescriptions
 
   get '/dashboards/', to: 'dashboards#index'
   get '/calendar/', to: 'appointments#calendar'

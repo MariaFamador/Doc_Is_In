@@ -69,7 +69,6 @@ class AppointmentsController < ApplicationController
       :first_name,
       :middle_name,
       :last_name,
-      :doctor,
       :notes,
       :starts_at,
       :status,

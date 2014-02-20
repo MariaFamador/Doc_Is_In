@@ -57,7 +57,7 @@ ready = ->
   $('.select2').each ->
     $(@).select2
       placeholder: "Please select..."
-      closeOnSelect: false  
+      closeOnSelect: false
 
   if $('.nav-tabs')
     $('.nav-tabs a').on 'shown.bs.tab', (e)->
@@ -74,8 +74,5 @@ ready = ->
   else if search
     tab_search = search.split('=')[1]
     $("a[href=##{tab_search}]").tab('show')
-
-  $('.nav-tabs li a').on 'click', (e) ->
-    history.pushState( null, null, $(this).attr('href'))
 
 $(document).ready(ready)
