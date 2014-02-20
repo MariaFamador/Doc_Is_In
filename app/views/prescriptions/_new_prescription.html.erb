@@ -1,0 +1,5 @@
+<%= simple_form_for @prescription, url: prescriptions_path(prescription, patient, tab: "prescription"), method: :post do |f| %>
+
+  <%= render partial: 'prescriptions/prescription_form', locals: { f: f, prescription: @prescription, patient: @patient, tab: 'prescription'} %>
+
+<% end %>

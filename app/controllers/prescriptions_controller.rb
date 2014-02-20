@@ -1,9 +1,13 @@
 class PrescriptionsController < ApplicationController
   before_action :get_patient, only: [:new, :show, :create, :edit, :update, ] 
-  before_action :get_prescription, only: [:update, :edit, :show, :destroy]
+  before_action :get_prescription, only: [:update, :edit, :show, :destroy, :show]
 
   def new
     @prescription = @patient.prescriptions.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -19,6 +23,10 @@ class PrescriptionsController < ApplicationController
     @prescription = Prescription.find(params[:id])
     @medicines = @prescription.medicines
     @symptoms = @prescription.symptoms
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
@@ -40,8 +48,11 @@ class PrescriptionsController < ApplicationController
 
   def destroy
     @patient = @prescription.patient
-    @prescription.destroy
-    redirect_to patient_path(@patient, get_tab), notice: "Prescription deleted."
+    respond_to do |format|
+      if @prescription.destroy
+        format.js
+      end
+    end
   end
 
   private

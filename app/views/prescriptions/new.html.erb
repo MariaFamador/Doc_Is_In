@@ -1,10 +1,4 @@
-<% content_for :page_title do %>
-  <h2>New Appointment for <%= @patient.full_name %></h2><hr>
-<% end %>
+<%= render partial: 'prescriptions/new_prescription', locals: { prescription: @prescription, patient: @patient, tab: "prescription"} %>
 
-<%= simple_form_for @prescription, url: prescriptions_path(@prescription, patient_id: @patient.id, tab: "prescription"), method: :post do |f| %>
 
-  <%= render partial: 'prescriptions/prescription_form', locals: { f: f, prescription: @prescription, patient: @patient, tab: 'prescription'} %>
-
-<% end %>
 

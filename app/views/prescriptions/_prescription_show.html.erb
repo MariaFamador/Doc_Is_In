@@ -1,0 +1,44 @@
+
+<div id='patient-prescription-show'>
+  <table class='table table-bordered'>
+    <tbody>
+      <tr>
+        <td>Date Issued</td>
+        <td><%= @prescription.format_created_at %></td>
+      </tr>
+      <tr>
+        <td>Patient</td>
+        <td><%= patient.full_name %></td>
+      </tr>
+      <tr>
+        <td>Doctor</td>
+        <td>Dr. <%= "#{current_user.first_name} #{current_user.last_name}" %></td>
+      </tr>
+      <tr>
+        <td>Diagnosis</td>
+        <td><%= prescription.diagnosis %></td>
+      </tr>
+      <tr>
+        <td>Prescribed Medication</td>
+        <td>
+          <ul>
+            <% prescription.medicines.each do |medicine| %>
+              <%= medicine.medicine_name %>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Symptoms</td>
+        <td>
+          <ul>
+            <% prescription.symptoms.each do |symptom| %>
+              <%= symptom.symptom_name %>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to "back", back_url %>
+</div>
