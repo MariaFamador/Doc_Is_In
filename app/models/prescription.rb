@@ -13,6 +13,6 @@ class Prescription < ActiveRecord::Base
   validates :diagnosis, presence: true
 
   def format_created_at
-    self.created_at.strftime("%A, %d %b")
+    self.created_at.strftime("%d %b %Y - %R - %A")
   end
 end

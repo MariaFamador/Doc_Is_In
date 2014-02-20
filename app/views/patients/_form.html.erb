@@ -6,8 +6,8 @@
   <% end %>
 <% end %>
 
-<div id="patient-form-body">
-<%= simple_form_for patient, html: { class: 'form-inline' } do |f| %>
+<div id='new-patient'>
+<%= simple_form_for(patient, html: { class: 'form-inline' }) do |f| %>
   <div id="patient-name-gender-form">
   <%= f.input :first_name, required: true %> 
   <%= f.input :middle_name %>
@@ -29,6 +29,8 @@
   </div>
   <br>
   <%= f.button :submit, "Save", class: "btn btn-primary" %>
-  <%= link_to "back", back_url %>
+  <% unless @patient.new_record? %>
+    <%= link_to "View Profile", patient_path(patient), class: 'btn btn-primary' %>
+  <% end %>
 <% end %>
 </div>
