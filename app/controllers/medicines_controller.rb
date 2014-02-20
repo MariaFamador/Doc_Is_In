@@ -26,10 +26,15 @@ class MedicinesController < ApplicationController
     @medicine = Medicine.find(params[:id])
   end
 
+  def index
+    @medicines = Medicine.all
+  end
+
   def medicine_params
     params.require(:medicine).permit(
       :prescription_id,
       :dosage,
+      :symptom_id,
       :symptom_name,
       :medicine_name
       )

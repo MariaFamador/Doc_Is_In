@@ -26,7 +26,7 @@ class SymptomsController < ApplicationController
   end
 
   def index
-    
+    @symptoms = Symptom.all
   end
 
   def symptom_params
