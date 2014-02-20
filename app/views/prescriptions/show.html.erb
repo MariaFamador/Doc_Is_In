@@ -1,0 +1,38 @@
+<% content_for :page_title do %>
+  <h2>Prescription</h2>
+<% end %>
+
+<div id='patient-prescription-show'>
+  <table class='table'>
+    <tbody>
+      <tr>
+        <td>Patient</td>
+        <td><%= @patient.full_name %></td>
+      </tr>
+      <tr>
+        <td>Diagnosis</td>
+        <td><%= @prescription.diagnosis %></td>
+      </tr>
+      <tr>
+        <td>Prescribed Medication</td>
+        <td>
+          <ul>
+            <% @prescription.medicines.each do |medicine| %>
+              <li><%= medicine.medicine_name %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Symptoms</td>
+        <td>
+          <ul>
+            <% @prescription.symptoms.each do |symptom| %>
+              <li><%= symptom.symptom_name %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
