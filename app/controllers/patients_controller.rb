@@ -3,14 +3,18 @@ class PatientsController < ApplicationController
 
   def new
     @patient = Patient.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
     @patient = Patient.new(patient_params)
     if @patient.save
-      redirect_to patient_path(@patient.id), notice: "Record saved."
+      redirect_to patient_path(@patient.id), notice: "Record saved." 
     else
-      redirect_to new_patient_path, alert: "Record not created."
+      redirect_to new_patient_path, notice: "Error in records."
     end
   end
 
@@ -37,18 +41,20 @@ class PatientsController < ApplicationController
   end
 
   def update
-    if @patient.update(patient_params)
-      redirect_to patient_path(@patient, get_tab), notice: "Changes saved."
+    respond_to do |format|
+      if @patient.update(patient_params)
         format.html { redirect_to patient_path(@patient, get_tab), notice: "Changes saved." }
         format.js { @status = "success"}
-    else
-      render :show
+      else
+        format.html { render :show }
+        format.js
+      end
     end
   end
 
   def destroy
     @patient.destroy
-    redirect_to patients_path, notice: "Record deleted."
+    redirect_to patients_path, notice: "Patient record deleted."
   end
 
   def search
