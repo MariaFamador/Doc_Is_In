@@ -54,8 +54,7 @@ ready = ->
     hiddenSuffix: '__suffix'
     editable: true
 
-  $('.select2').each ->
-    $(@).select2
+  $('.form-select').select2
       placeholder: "Please select..."
       closeOnSelect: false
 
