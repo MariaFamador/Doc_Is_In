@@ -39,6 +39,8 @@ class PatientsController < ApplicationController
   def update
     if @patient.update(patient_params)
       redirect_to patient_path(@patient, get_tab), notice: "Changes saved."
+        format.html { redirect_to patient_path(@patient, get_tab), notice: "Changes saved." }
+        format.js { @status = "success"}
     else
       render :show
     end
