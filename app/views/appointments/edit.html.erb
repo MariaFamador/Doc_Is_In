@@ -3,5 +3,5 @@
 <% end %>
 
 <%= simple_form_for @appointment, url: appointment_path(@appointment, patient_id: @patient.id, tab: "patient-appointments"), method: :patch do |f| %>
-  <%= render partial: "appointments/booking_form", locals: { f: f, patient: @appointment.patient, appointment: @appointment } %>
+  <%= render partial: "shared/booking_form", locals: { f: f, patient: @appointment.patient, appointment: @appointment } %>
 <% end %>

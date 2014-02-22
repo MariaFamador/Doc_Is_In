@@ -6,13 +6,16 @@
   <% end %>
 <% end %>
 
+
+<% remote = @patient.persisted? %>
+
 <div id='new-patient'>
-<%= simple_form_for(patient, html: { class: 'form-inline' }) do |f| %>
+<%= simple_form_for(patient, html: { class: 'form-inline' }, remote: remote) do |f| %>
   <div id="patient-name-gender-form">
   <%= f.input :first_name, required: true %> 
   <%= f.input :middle_name %>
   <%= f.input :last_name, required: true %>
-  <%= f.input :gender, collection: %w[Male Female], input_html: { class: 'select2', multiple: false } %>
+  <%= f.input :gender, collection: %w[Male Female], input_html: { class: 'form-select', multiple: false } %>
   </div>
   <div id="-dob-address-phonumber-form">
   <%= f.input :dob, label: "Date of Birth",

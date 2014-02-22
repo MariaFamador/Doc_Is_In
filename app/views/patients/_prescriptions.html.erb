@@ -1,6 +1,6 @@
-
+<br>
 <div>
-  <%= link_to "Create New Prescription", new_prescription_path(patient_id: @patient.id), remote: true, class: 'btn btn-success btn-sm' %>
+  <%= link_to "Create New Prescription", new_prescription_path(patient_id: @patient.id, tab: "prescription"), remote: true, class: 'btn btn-success btn-sm' %>
 </div>
 <br>
 <div>
@@ -36,6 +36,3 @@
     </div>
   <% end %>
 </div>
-
-
-
