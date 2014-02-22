@@ -35,7 +35,7 @@ feature 'Managing patient records' do
       expect(page).to have_content(patient.address)
       click_on "Delete Record"
 
-      expect(page).to have_content("Record deleted")
+      expect(page).to have_content("Patient record deleted.")
     end
 
     scenario "can edit patient records", js: true do

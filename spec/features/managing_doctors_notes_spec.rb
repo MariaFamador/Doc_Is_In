@@ -13,7 +13,7 @@ feature "Updating doctor's notes" do
       appointment
 
       visit patient_path(patient)
-      find('#doctors_notes').click
+      find('#doctors-notes').click
       fill_in "patient_appointments_attributes_0_notes", with: "Test"
       click_on "Update Patient"
 
