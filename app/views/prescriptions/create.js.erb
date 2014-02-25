@@ -1,0 +1,3 @@
+$('#prescription').html('<%= j render partial: "patients/prescriptions" %>');
+
+$('#right-column').prepend('<%= j render partial: 'shared/flash_messages', locals: { notice: "Prescription saved." } %>');

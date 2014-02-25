@@ -18,6 +18,7 @@ class PrescriptionsController < ApplicationController
         format.js { @status = "success" }
       else
         format.html { render :new }
+        format.js { render :new }
       end
     end
   end
