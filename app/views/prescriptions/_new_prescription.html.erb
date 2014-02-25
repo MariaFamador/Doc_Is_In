@@ -1,6 +1,6 @@
 
-<div class='prescription-form'>
-  <%= simple_form_for @prescription, url: prescriptions_path(@prescription, patient_id: @patient.id, tab: "prescription"), method: :post do |f| %>
+<div>
+  <%= simple_form_for(@prescription, url: prescriptions_path(@prescription, patient_id: @patient.id, tab: "prescription"), method: :post, remote: true) do |f| %>
 
     <%= render partial: 'shared/prescription_form', locals: { f: f, prescription: @prescription, patient: @patient, tab: 'prescription'} %>
 

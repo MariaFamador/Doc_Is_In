@@ -1,6 +1,6 @@
 class PrescriptionsController < ApplicationController
-  before_action :get_patient, only: [:new, :show, :create, :edit, :update, ] 
-  before_action :get_prescription, only: [:update, :edit, :show, :destroy, :show]
+  before_action :get_patient, only: [:new, :show, :create] 
+  before_action :get_prescription, only: [:show, :destroy, :show]
 
   def new
     @prescription = @patient.prescriptions.new
@@ -12,10 +12,13 @@ class PrescriptionsController < ApplicationController
 
   def create
     @prescription = @patient.prescriptions.new(prescription_params)
-    if @prescription.save
-      redirect_to patient_path(@patient, get_tab), notice: "Prescription saved."
-    else
-      render :new, alert: "Please check errors."
+    respond_to do |format|
+      if @prescription.save
+        format.html { redirect_to patient_path(@patient, get_tab), notice: "Prescription saved." }
+        format.js { @status = "success" }
+      else
+        format.html { render :new }
+      end
     end
   end
 
@@ -29,28 +32,11 @@ class PrescriptionsController < ApplicationController
     end
   end
 
-  def edit
-    @patient = @prescription.patient
-    respond_to do |format|
-      format.js
-      format.html
-    end
-  end
-
-  def update
-    @prescription = Prescription.find(params[:id])
-    if @prescription.update
-      redirect_to :edit, notice: "Changes saved."
-    else
-      redirect_to :edit, alert: "Error in changes."
-    end
-  end
-
   def destroy
     @patient = @prescription.patient
     respond_to do |format|
       if @prescription.destroy
-        format.js
+        format.js { @status == "success" }
       end
     end
   end

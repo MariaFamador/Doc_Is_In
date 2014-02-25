@@ -1,2 +1,6 @@
-$('a[href="<%= prescription_path(@prescription, patient_id: @patient) %>"]').closest('.delete-data').remove();
-
+<% if @patient.prescriptions.empty? %>
+  $('#prescription table').remove();
+  $('#prescription').append('<h3>There are no prescriptions issued.</h3>');
+<% else %>
+  $('a[href="<%= prescription_path(@prescription, patient_id: @patient) %>"]').closest('#delete-data').remove();
+<% end %>

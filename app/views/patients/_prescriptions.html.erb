@@ -1,38 +1,26 @@
 <br>
 <div>
-  <%= link_to "Create New Prescription", new_prescription_path(patient_id: @patient.id, tab: "prescription"), remote: true, class: 'btn btn-success btn-sm' %>
 </div>
 <br>
-<div>
-  <% if @patient.prescriptions.empty? %>
-      <table class='table table-bordered'>
-        <thead>
-          <tr>
-            <th>Date Issued</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-      </table>
-  <% else %>
-    <div>
-      <table class='table table-bordered'>
-        <tbody>
-          <thead>
-            <tr>
-              <th>Date Issued</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <div class='destroy-data'>
-          <% @patient.prescriptions.each do |prescription| %>
-            <tr class='delete-data'>
-              <td><%= link_to prescription.format_created_at, prescription_path(prescription.id, patient_id: @patient.id), remote: true %></td>
-              <td><%= link_to "Delete", prescription_path(prescription, tab: "prescription"), remote: true, method: :delete, class: 'btn btn-danger' %></td>
-            </tr>
-          <% end %>
-          </div>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
-</div>
+<% if @patient.prescriptions.empty? %>
+  <h3>There are no prescriptions issued.</h3>
+<% else %>
+  <table class='table table-bordered'>
+    <tbody>
+      <thead>
+        <tr>
+          <th>Date Issued</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <% @patient.prescriptions.each do |prescription| %>
+        <tr id='delete-data'>
+          <td><%= link_to prescription.format_created_at, prescription_path(prescription.id, patient_id: @patient.id), remote: true %></td>
+          <td><%= link_to "Delete", prescription_path(prescription, tab: "prescription"), data: { confirm: "Are you sure?" }, remote: true, method: :delete, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+<% end %>
