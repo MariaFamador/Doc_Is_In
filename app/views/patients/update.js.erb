@@ -1,5 +1,5 @@
 $('#profile').html('<%= j render partial: "patients/profile", locals: { patient: @patient } %>');
 
 <% if @status == "success" %>
-  $('#right-column').prepend('<br><%= j render partial: 'shared/flash_messages', locals: { notice: "Changes saved." } %>');
+  $('#right-column').prepend('<%= j render partial: 'shared/flash_messages', locals: { notice: "Changes saved." } %>');
 <% end %>

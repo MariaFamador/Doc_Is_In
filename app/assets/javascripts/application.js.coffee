@@ -57,6 +57,9 @@ ready = ->
   $('.form-select').select2
       placeholder: "Please select..."
       closeOnSelect: false
+  $('.select2').select2
+      placeholder: "Please select..."
+      closeOnSelect: false
 
   if $('.nav-tabs')
     $('.nav-tabs a').on 'shown.bs.tab', (e)->
