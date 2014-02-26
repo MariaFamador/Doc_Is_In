@@ -1,3 +1,6 @@
 $('#prescription').html('<%= j render partial: "prescriptions/new_prescription", locals: { prescription: @prescription, patient: @patient, tab: "prescription" } %>');
 
-$('.select2').select2();
+$('.select2').select2({
+  placeholder: "Please select...",
+  closeOnSelect: false
+});
