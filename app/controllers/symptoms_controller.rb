@@ -33,8 +33,8 @@ class SymptomsController < ApplicationController
     params.require(:symptom).permit(
       :prescription_id,
       :dosage,
-      :medicine_name,
-      :symptom_name
+      :name,
+      medicine_ids: []
       )
   end
 end

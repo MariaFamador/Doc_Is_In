@@ -1,8 +1,8 @@
 <%= f.input :patient_id, as: :hidden, input_html: { value: patient.id } %>
 <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
 <%= f.input :diagnosis, required: true %>
-<%= f.association :medicines, collection: Medicine.all, value_method: :id, label_method: :medicine_name, input_html: { class: 'select2', multiple: true } %>
-<%= f.association :symptoms, collection: Symptom.all, value_method: :id, label_method: :symptom_name, input_html: { class: 'select2', multiple: true } %>
+<%= f.association :symptoms, collection: Symptom.all, value_method: :id, label_method: :name, input_html: { class: 'select2', multiple: true } %>
+<%= f.association :medicines, collection: Medicine.all, value_method: :id, label_method: :name, input_html: { class: 'select2', multiple: true } %>
 <br>
 <%= f.button :submit, "Save", class: "btn btn-primary" %>
 <%= link_to "back", back_url %>

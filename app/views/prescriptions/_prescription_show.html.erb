@@ -23,7 +23,7 @@
         <td>
           <ul>
             <% prescription.medicines.each do |medicine| %>
-              <%= medicine.medicine_name %>
+              <%= medicine.name %>
             <% end %>
           </ul>
         </td>
@@ -33,7 +33,7 @@
         <td>
           <ul>
             <% prescription.symptoms.each do |symptom| %>
-              <%= symptom.symptom_name %>
+              <%= symptom.name %>
             <% end %>
           </ul>
         </td>
