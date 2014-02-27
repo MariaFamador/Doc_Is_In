@@ -1,7 +1,7 @@
-<div>
+
   <% content_for :page_title do %>
     <div id="page-title">
-      <h2><i class="glyphicon glyphicon-user">&nbsp</i><%= @patient.full_name %></h2><hr>
+      <h2><i class="glyphicon glyphicon-user"></i>&nbsp<%= @patient.full_name %></h2><hr>
     </div>
   <% end %>
 
@@ -19,18 +19,22 @@
       <div class="tab-pane active" id="profile">
         <%= render 'patients/profile'%> 
       </div>
+
       <div class="tab-pane" id="medical-history">
         <%= render 'patients/medical_history' %>
       </div>
+
       <div class="tab-pane" id="patient-appointments">
         <%= render 'appointments/appointments' %>
       </div>
+
       <div class="tab-pane" id="prescription">
         <%= render 'patients/prescriptions' %>
       </div>
+
       <div class="tab-pane" id="doctors-notes">
         <%= render 'patients/doctors_notes' %>
       </div>
+      
     </div>
   </div>
-</div>
