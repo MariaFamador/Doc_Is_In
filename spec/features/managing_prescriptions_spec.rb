@@ -4,8 +4,8 @@ feature 'Managing Prescriptions' do
   let(:user) { create(:user) }
   let(:patient) { create(:patient, user: user) }
   let(:methotrexate) { create(:medicine) }
-  let(:neozep) { create(:medicine, medicine_name: "Neozep") }
-  let(:common_cold) { create(:symptom, symptom_name: "Common Cold") }
+  let(:neozep) { create(:medicine, name: "Neozep") }
+  let(:common_cold) { create(:symptom, name: "Common Cold") }
   let(:chills) { create(:symptom) }
   let(:prescription) { create(:prescription, patient: patient) }
   let(:other_prescription) { create(:prescription, patient: patient) }
@@ -24,10 +24,10 @@ feature 'Managing Prescriptions' do
       click_on "Create Prescription"
       fill_in "Diagnosis", with: "Test"
 
-      select methotrexate.medicine_name, from: "Medicines"
-      select neozep.medicine_name, from: "Medicines"
-      select chills.symptom_name, from: "Symptoms"
-      select common_cold.symptom_name, from: "Symptoms"
+      select methotrexate.name, from: "Medicines"
+      select neozep.name, from: "Medicines"
+      select chills.name, from: "Symptoms"
+      select common_cold.name, from: "Symptoms"
 
       click_on "Save"
 
