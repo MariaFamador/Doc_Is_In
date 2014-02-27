@@ -17,6 +17,9 @@ DocIsIn::Application.routes.draw do
   end
 
   resources :prescriptions
+  resources :medicines do
+    post :search, on: :collection
+  end
 
   get '/dashboards/', to: 'dashboards#index'
   get '/calendar/', to: 'appointments#calendar'

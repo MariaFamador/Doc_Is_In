@@ -1,0 +1,11 @@
+
+<div class='search-medicines'>
+  <%= form_tag search_medicines_path, class: 'search_form', remote: true do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search medicine here", class: "form-control" %>
+    <%= submit_tag "Go", class: 'btn btn-default', id: 'medicine-go' %>
+
+    <span class='or'>OR</span>
+
+    <%= link_to "Add New Medicine", new_medicine_path, class: 'btn btn-default', id: 'new-medicine-btn' %>
+  <% end %>
+</div>

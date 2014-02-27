@@ -1,0 +1,20 @@
+
+  <% content_for :page_title do %>
+    <div id='page-title'>
+      <h2><i class="fa fa-medkit"></i>&nbspMedicine Cabinet</h2>
+    </div>
+  <% end %>
+  <br>
+  <ul class='nav nav-tabs' id='medicine-cabinet'>
+    <li class='active'><a href='#edit-medicines' data-toggle='tab'>Medicines</a></li>
+    <li><a href='#edit-symptoms' data-toggle='tab'>Symptoms</a></li>
+  </ul>
+
+  <div class='tab-content'>
+    <div class='tab-pane active' id='edit-medicines'>
+      <%= render "medicines/search_medicines" %>
+    </div>
+
+    <div id='edit-symptoms'>
+    </div>
+  </div>

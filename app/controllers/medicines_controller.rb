@@ -15,7 +15,7 @@ class MedicinesController < ApplicationController
 
   def update
     @medicine = Medicine.find(params[:id])
-    if @medicine.update
+    if @medicine.update(medicine_params)
       redirect_to :edit, notice: "Changes saved."
     else
       redirect_to :edit, alert: "Error in changes"
@@ -24,19 +24,37 @@ class MedicinesController < ApplicationController
 
   def edit
     @medicine = Medicine.find(params[:id])
+    @symptoms = Symptom.all
   end
 
   def index
     @medicines = Medicine.all
+    @symptoms = Symptom.all
+    @medicine = Medicine.new
+  end
+
+  def search
+    if params[:query].present?
+      @medicines = Medicine.search(
+        params[:query],
+        partial: true,
+        fields: [ { name: :word_start} ]
+        )
+    else
+      @medicines = Medicine.order(:name)
+    end
   end
 
   def medicine_params
     params.require(:medicine).permit(
       :prescription_id,
       :dosage,
-      :symptom_id,
-      :symptom_name,
-      :medicine_name
-      )
+      :medicine_name,
+      symptom_ids: [],
+      symptoms_attributes: [
+        :symptom_name,
+        medicine_ids: []
+      ]
+    )
   end
 end
