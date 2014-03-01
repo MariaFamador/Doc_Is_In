@@ -1,0 +1,8 @@
+<% if @medicines.empty? %>
+  $('.search-result table').remove();
+  $('#edit-medicines').append('<h3>There are no medicine records.</h3>');
+<% else %>
+  $('a[href="<%= medicine_path(@medicine) %>"]').closest('.delete-data').remove();
+  $('.search-result table').remove();
+  $('#edit-medicines').append('<%= j render "medicines/search" %>');
+<% end %>

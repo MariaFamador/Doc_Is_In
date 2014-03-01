@@ -6,8 +6,7 @@
       <h2><i class="fa fa-medkit"></i>&nbspSearch Results</h2>
     <% end %>
 
-    <br>
-
+    
     <table class='table table-bordered'>
       <thead>
         <tr>
@@ -17,13 +16,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr class='delete-data'>
         <% @medicines.each do |medicine| %>
           <td><%= medicine.name %></td>
           <td>
-              <% medicine.symptoms.each do |symptom| %>
-                <li><%= symptom.name %></li>
-              <% end %>
+            <% medicine.symptoms.each do |symptom| %>
+              <li><%= symptom.name %></li>
+            <% end %>
           </td>
           <td>
             <%= link_to "Edit", edit_medicine_path(medicine), class: 'btn btn-primary btn-sm', remote: true %>
