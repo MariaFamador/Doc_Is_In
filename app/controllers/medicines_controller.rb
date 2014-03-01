@@ -4,27 +4,47 @@ class MedicinesController < ApplicationController
     @medicine = Medicine.new
   end
 
+  def destroy
+    @medicines = Medicine.all
+    @medicine = Medicine.find(params[:id])
+    respond_to do |format|
+      if @medicine.destroy
+        format.html { redirect_to medicines_path, notice: "Medicine deleted." }
+        format.js
+      end
+    end
+  end
+
   def create
     @medicine = Medicine.new(medicine_params)
     if @medicine.save
-      redirect_to :new, notice: "Record saved."
+      redirect_to medicines_path, notice: "Record saved."
     else
-      render :new, alert: "Unable to save record."
+      render :new
     end
   end
 
   def update
     @medicine = Medicine.find(params[:id])
-    if @medicine.update(medicine_params)
-      redirect_to :edit, notice: "Changes saved."
-    else
-      redirect_to :edit, alert: "Error in changes"
+    @medicines = Medicine.all
+    respond_to do |format|
+      if @medicine.update(medicine_params)
+        format.html { redirect_to medicines_path, notice: "Changes saved." }
+        format.js { @status = "success" } 
+      else
+        format.html { render :edit }
+        format.js
+      end
     end
   end
 
   def edit
     @medicine = Medicine.find(params[:id])
     @symptoms = Symptom.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def index
@@ -39,7 +59,7 @@ class MedicinesController < ApplicationController
         params[:query],
         partial: true,
         fields: [ { name: :word_start} ]
-        )
+      )
     else
       @medicines = Medicine.order(:name)
     end
@@ -49,10 +69,10 @@ class MedicinesController < ApplicationController
     params.require(:medicine).permit(
       :prescription_id,
       :dosage,
-      :medicine_name,
+      :name,
       symptom_ids: [],
       symptoms_attributes: [
-        :symptom_name,
+        :name,
         medicine_ids: []
       ]
     )
