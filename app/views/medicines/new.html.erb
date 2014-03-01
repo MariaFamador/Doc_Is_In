@@ -1,0 +1,7 @@
+<% content_for :page_title do %>
+  <h2>New Medicine</h2><hr>
+<% end %>
+
+<%= simple_form_for @medicine do |f| %>
+  <%= render partial: "medicines/medicine_form", locals: { f: f} %>
+<% end %>
