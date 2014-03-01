@@ -25,7 +25,10 @@
                 <li><%= symptom.name %></li>
               <% end %>
           </td>
-          <td><%= link_to "Edit", edit_medicine_path(medicine), class: 'btn btn-primary btn-sm' %></td>
+          <td>
+            <%= link_to "Edit", edit_medicine_path(medicine), class: 'btn btn-primary btn-sm', remote: true %>
+            <%= link_to "Delete", medicine_path(medicine), class: 'btn btn-danger btn-sm', method: :delete, remote: true, data: { confirm: "Are you sure?" } %>
+          </td>
         </tr>
         <% end %>
       </tbody>
