@@ -1,5 +1,6 @@
 
 $('#medicine-form').remove();
+$('.search-result table').remove();
 $('#edit-medicines').append('<%= j render partial: "medicines/search" %>');
 
 <% if @status == "success" %>
