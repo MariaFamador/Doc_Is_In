@@ -1,4 +1,4 @@
     <%= f.input :name, label: "Medicine", required: true, input_html: { value: (@medicine.name if @medicine) } %>
     <%= f.association :symptoms, collection: Symptom.all, input_html: { class: 'select2', multiple: true, value: (@medicine.symptoms if @medicine.symptoms) } %>
     <br>
-    <%= f.button :submit, "Save Medicine", class: 'btn btn-primary' %>
+    <%= f.button :submit, "Save", class: 'btn btn-primary' %>

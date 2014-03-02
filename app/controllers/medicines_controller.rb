@@ -16,11 +16,16 @@ class MedicinesController < ApplicationController
   end
 
   def create
+    @medicines = Medicine.all
     @medicine = Medicine.new(medicine_params)
-    if @medicine.save
-      redirect_to medicines_path, notice: "Record saved."
-    else
-      render :new
+    respond_to do |format|
+      if @medicine.save
+        format.html { redirect_to medicines_path, notice: "Record saved." }
+        format.js { @status = "success" }
+      else
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
