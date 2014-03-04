@@ -14,7 +14,7 @@ class PatientsController < ApplicationController
     if @patient.save
       redirect_to patient_path(@patient.id), notice: "Record saved." 
     else
-      redirect_to new_patient_path, notice: "Error in records."
+      redirect_to new_patient_path, alert: "Please check errors."
     end
   end
 
