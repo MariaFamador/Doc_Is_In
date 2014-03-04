@@ -24,7 +24,7 @@ class MedicinesController < ApplicationController
         format.js { @status = "success" }
       else
         format.html { render :new }
-        format.js
+        format.js { render :new }
       end
     end
   end
@@ -75,6 +75,7 @@ class MedicinesController < ApplicationController
       :prescription_id,
       :dosage,
       :name,
+      :form,
       symptom_ids: [],
       symptoms_attributes: [
         :name,
