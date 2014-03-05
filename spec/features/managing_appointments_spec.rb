@@ -17,8 +17,8 @@ feature "Managing Appointments" do
       click_on "Patient Records"
       expect(page).to have_content(patient.full_name)
       click_on "Book Appointment"
-      fill_in "Appointment", with: "Thursday, 30 Jan, 2014"
-      fill_in "Starts at time", with: "8:30"
+      fill_in "Date", with: "Thursday, 30 Jan, 2014"
+      fill_in "Time", with: "8:30"
       click_on "Save"
 
       expect(page).to have_content("Appointment booked.")
@@ -35,8 +35,8 @@ feature "Managing Appointments" do
       click_on patient.full_name
       find("#patient-appointments").click
       find(".edit-appointment").click
-      fill_in "Appointment", with: "Tuesday, 28 Jan, 2014"
-      fill_in "Starts at time", with: "9:00"
+      fill_in "Date", with: "Tuesday, 28 Jan, 2014"
+      fill_in "Time", with: "9:00"
       click_on "Save"
 
       expect(page).to have_content("Appointment changed.")
