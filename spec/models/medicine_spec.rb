@@ -13,6 +13,7 @@ describe Medicine do
     context "when form is equal to medicine_form" do
       subject do
         medicine.form = "medicine_form"
+        medicine
       end
 
       it { should validate_presence_of(:name) }

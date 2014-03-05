@@ -7,7 +7,7 @@ module FeatureHelper
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
 
-    expect(page).to have_content('Signed in successfully.')
+    expect(page).to have_content('Welcome to the Home Page!')
   end
 
   def sign_out(user)

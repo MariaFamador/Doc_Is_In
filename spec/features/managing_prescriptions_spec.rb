@@ -40,7 +40,7 @@ feature 'Managing Prescriptions' do
 
       visit patient_path(patient, tab: "prescription")
       expect(Prescription.count).to eq 2
-      first(:link, 'Delete').click
+      find(:link, 'Delete', match: :first).click
       page.driver.browser.switch_to.alert.accept
 
       expect(Prescription.count).to eq 1
@@ -50,7 +50,7 @@ feature 'Managing Prescriptions' do
       other_prescription
 
       visit patient_path(patient, tab: "prescription")
-      first(:link, other_prescription.format_created_at).click 
+      find(:link, other_prescription.format_created_at, match: :first).click 
       
       expect(page).to have_content("Prescribed Medication")
       expect(page).to have_content("Date Issued")
