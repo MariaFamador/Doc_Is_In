@@ -2,6 +2,8 @@
   <h2>Edit Appointment for <%= @patient.full_name %></h2><hr>
 <% end %>
 
-<%= simple_form_for @appointment, url: appointment_path(@appointment, patient_id: @patient.id, tab: "patient-appointments"), method: :patch do |f| %>
-  <%= render partial: "shared/booking_form", locals: { f: f, patient: @appointment.patient, appointment: @appointment } %>
-<% end %>
+<div class='form-inline'>
+  <%= form_for @appointment, url: appointment_path(@appointment, patient_id: @patient.id, tab: 'patient-appointments'), html: { method: "patch" } do |f| %>
+    <%= render partial: 'shared/booking_form', locals: { f: f, appointment: @appointment, patient: @appointment.patient } %>
+  <% end %>
+</div>
