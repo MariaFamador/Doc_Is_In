@@ -11,7 +11,10 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       if @appointment.save 
         format.html { redirect_to patient_path(@patient, get_tab), notice: "Appointment booked." }
-        format.js { @status = "success" }
+        format.js do 
+          @status = "success"
+          @appointment = @patient.appointments.new
+        end
       else
         format.html { render :new }
         format.js { render :new }
@@ -32,7 +35,10 @@ class AppointmentsController < ApplicationController
       if @appointment.update(appointment_params) 
         patient = @appointment.patient
         format.html { redirect_to patient_path(patient, get_tab), notice: "Appointment changed." } 
-        format.js { @status = "success" }
+        format.js  do 
+          @status = "success"
+          @appointment = Appointment.new
+        end
       else
         format.html { render :edit }
         format.js { render :edit }

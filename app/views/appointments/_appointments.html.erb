@@ -1,11 +1,11 @@
+<br>
+<%= render 'appointments/new' %>
 
-<div class='appointment-table-with-book-btn'>
-  <br>
-  <%= link_to "Book Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-success btn-sm pull-right', id: 'new-appointment-btn', remote: true %>
-
+<div class='appointment-table'>
   <% appointments = @patient.appointments %>
+  
   <% if appointments.empty? %>
-    <h3>No appointments have been scheduled.</h3>
+    <h3 class='no-appointments'>No appointments have been scheduled.</h3>
   <% else %>
     <%= render partial: 'appointments/appointments_table', locals: { appointments: @patient.appointments } %>
   <% end %>

@@ -26,6 +26,7 @@ class PatientsController < ApplicationController
     @surgery_and_hospitalization = @medical_history.surgery_and_hospitalization
     @family_history = @medical_history.family_history
     @appointments = @patient.appointments.order(:starts_at)
+    @appointment = Appointment.new
   end
 
   def index
