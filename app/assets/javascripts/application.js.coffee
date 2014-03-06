@@ -35,7 +35,6 @@ ready = ->
       if (event.url) 
         window.open(event.url, _self)
 
-
   $('.datepicker').pickadate
     format: 'dddd, dd mmm, yyyy'
     formatSubmit: 'yyyy/mm/dd'
