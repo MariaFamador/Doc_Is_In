@@ -1,4 +1,25 @@
+#new_appointment {
+  margin-top: 35px;
+}
 
-#appointment_starts_at_time, #appointment_starts_at_date {
-  width: 30%;
+#new-appointment-btn {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.inline_inputs > .control-group {
+  display: inline-block;
+  width: 32%;
+}
+
+.appointment-save {
+  position: absolute;
+  margin-left: 9px;
+  margin-top: 2px;
+}
+
+.appointment-back {
+  position: absolute;
+  margin-left: 64px;
+  margin-top: 5px;
 }
