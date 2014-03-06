@@ -1,3 +1,4 @@
+
 <div class="inline_inputs">
   <%= f.input :starts_at_date,
               label: false,
@@ -10,10 +11,12 @@
                placeholder: "Time",
                required: true,
                input_html: { class: 'timepicker', value: (f.object.format_time if f.object.starts_at) } %>
-  <%= f.submit "Save", class: 'btn btn-primary btn-sm appointment-save' %>
-  <%= link_to "back", back_url, class: 'appointment-back' %>
-  <%= link_to "Book Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-success btn-sm pull-right', id: 'new-appointment-btn-2', remote: true %>
-</div>
+  <%= f.submit "Book", class: 'btn btn-primary btn-sm appointment-save' %>
+
+  <% if @appointment.persisted? %>
+    <%= link_to "New Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-default btn-sm new-appointment-link', remote: true %>
+  <% end %>
+</div>  
 
 <%= f.input :user_id,
               as: :hidden,
@@ -23,7 +26,7 @@
 <%= f.input :patient_id,
               as: :hidden,
               required: true,
-              input_html: { value: patient.id } %> 
+              input_html: { value: (patient.id if patient) } %> 
 
 <%= f.input :form,
               as: :hidden, 

@@ -1,6 +1,6 @@
+
 $('#appointment-form').remove();
-$('#new-appointment-btn').remove();
-$('#patient-appointments').prepend('<%= j render partial: "appointments/new" %>');
+$('#patient-appointments').html('<%= j render partial: "appointments/appointments" %>');
 
 $(document).ready(function() {
   $('.datepicker').pickadate({
