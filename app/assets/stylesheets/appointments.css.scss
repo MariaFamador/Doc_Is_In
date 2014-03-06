@@ -1,22 +1,22 @@
-#new_appointment, .edit_appointment {
-  margin-top: 35px;
-}
 
-#new-appointment-btn {
+#appointment-form { 
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-#new-appointment-btn-2 {
-  margin-bottom: 15px;
-  position: absolute;
-  margin-left: 200px;
-  margin-top: 0px;  
+.new-appointment-link {
+  margin-left: 70px;
+  margin-top: -3px;
 }
 
 .inline_inputs > .control-group {
   display: inline-block;
   width: 32%;
+}
+
+.inline_inputs_edit > .control-group {
+  display: inline-block;
+  width: 22%;
 }
 
 .appointment-save {
@@ -25,8 +25,18 @@
   margin-top: 2px;
 }
 
-.appointment-back {
-  position: absolute;
-  margin-left: 64px;
-  margin-top: 5px;
+tr > td.a-date, .thead-date {
+  width: 25%;
 }
+
+.a-time {
+}
+// .a-status {
+//   width: 20%;
+// }
+
+.table > tbody > tr > td.actions, .thead-actions {
+  text-align: center;
+  width: 23%;
+}
+
