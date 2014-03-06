@@ -1,3 +1,2 @@
-$('.edit_appointment').remove();
-$('.appointment-table-with-book-btn').remove();
-$('#patient-appointments').append('<%= j render partial: "appointments/appointments", locals: { appointments: @patient.appointments } %>');
+
+$('#patient-appointments').html('<%= j render partial: "appointments/appointments", locals: { appointments: @patient.appointments } %>');
