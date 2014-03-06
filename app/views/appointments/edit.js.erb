@@ -1,0 +1,26 @@
+
+$('#appointment-form').remove();
+$('#new-appointment-btn').remove();
+$('#patient-appointments').prepend('<%= j render "appointments/edit" %>');
+
+$(document).ready(function() {
+  $('.datepicker').pickadate({
+    format: 'dddd, dd mmm, yyyy',
+    formatSubmit: 'yyyy/mm/dd',
+    min: true,
+    max: +14,
+    hiddenPrefix: 'prefix__',
+    hiddenSuffix: '__suffix',
+    editable: true
+  });
+    
+  $('.timepicker').pickatime({
+    format: "HH:i",
+    interval: 15,
+    min: [8, 0],
+    max: [17, 0],
+    hiddenPrefix: 'prefix__',
+    hiddenSuffix: '__suffix',
+    editable: true
+  });
+});

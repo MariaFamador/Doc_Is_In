@@ -12,7 +12,7 @@
     <% appointments.order(:starts_at).each do |appointment| %>
       <tr>
         <td width="35%">
-          <%= link_to edit_appointment_path(appointment), class: "edit-appointment" do %>
+          <%= link_to edit_appointment_path(appointment), class: "edit-appointment", remote: true do %>
             <i class="glyphicon glyphicon-pencil"></i>
           <% end %>
           <%= link_to cancel_appointment_path(appointment.id, tab: "patient-appointments" ), class: "cancel-appointment", method: :patch do %>

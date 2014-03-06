@@ -21,6 +21,10 @@ class AppointmentsController < ApplicationController
 
   def edit
     @patient = @appointment.patient
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
