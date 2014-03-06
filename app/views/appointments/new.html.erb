@@ -2,9 +2,8 @@
   <h2>New Appointment for <%= @patient.full_name %></h2><hr>
 <% end %>
 
-<div class='form-inline'>
+<div>
   <%= simple_form_for @appointment, url: appointments_path(@appointment, patient_id: @patient.id, tab: 'patient-appointments'), method: :post do |f| %>
     <%= render partial: 'shared/booking_form', locals: { f: f, appointment: @appointment, patient: @appointment.patient } %>
-    <%= link_to "back", back_url %>
   <% end %>
 </div>
