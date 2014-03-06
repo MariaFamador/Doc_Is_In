@@ -1,7 +1,10 @@
 
-$('#appointment-form').remove();
-$('#new-appointment-btn').remove();
-$('#patient-appointments').prepend('<%= j render "appointments/edit" %>');
+<% if @patient.appointments.empty? %>
+  $('#patient-appointments').append('<h3 class="no-appointments">No appointments have been scheduled.</h3>');
+<% else %>
+  $('#appointment-form').replaceWith('<%= j render "appointments/edit" %>')
+<% end %>
+
 
 $(document).ready(function() {
   $('.datepicker').pickadate({

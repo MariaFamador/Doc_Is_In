@@ -1,5 +1,5 @@
 
-<div class='form-inline' id='appointment-form'>
+<div id='appointment-form'>
   <%= simple_form_for @appointment, url: appointment_path(@appointment, patient_id: @patient.id, tab: 'patient-appointments'), method: :patch, remote: true do |f| %>
     <%= render partial: "shared/booking_form", locals: { f: f, appointment: @appointment, patient: @appointment.patient } %>
   <% end %>
