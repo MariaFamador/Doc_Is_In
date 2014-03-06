@@ -8,10 +8,14 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = @patient.appointments.new(appointment_params)
-    if @appointment.save 
-      redirect_to patient_path(@patient, get_tab), notice: "Appointment booked."
-    else
-      render :new
+    respond_to do |format|
+      if @appointment.save 
+        format.html { redirect_to patient_path(@patient, get_tab), notice: "Appointment booked." }
+        format.js { @status = "success" }
+      else
+        format.html { render :new }
+        format.js { render :new }
+      end
     end
   end
 
@@ -20,11 +24,15 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    if @appointment.update(appointment_params) 
-      patient = @appointment.patient
-      redirect_to patient_path(patient, get_tab), notice: "Appointment changed."  
-    else
-      render :edit
+    respond_to do |format|
+      if @appointment.update(appointment_params) 
+        patient = @appointment.patient
+        format.html { redirect_to patient_path(patient, get_tab), notice: "Appointment changed." } 
+        format.js { @status = "success" }
+      else
+        format.html { render :edit }
+        format.js { render :edit }
+      end
     end
   end
 
