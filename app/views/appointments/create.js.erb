@@ -1,0 +1,8 @@
+
+$('#appointment-form').remove();
+$('.appointment-table-with-book-btn').remove();
+$('#patient-appointments').append('<%= j render partial: "appointments/appointments", locals: { appointments: @patient.appointments } %>');
+
+<% if @status == "success" %>
+  $('#right-column').prepend('<%= j render partial: "shared/flash_messages", locals: { notice: "Appointment booked." } %>');
+<% end %>
