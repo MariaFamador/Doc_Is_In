@@ -43,7 +43,7 @@ class Appointment < ActiveRecord::Base
   end
 
   def ends_at
-    (self.starts_at + 15.minutes) if starts_at
+    (self.starts_at + 14.minutes) if starts_at
   end
 
   private
