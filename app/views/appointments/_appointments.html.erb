@@ -1,7 +1,7 @@
 
 <div class='appointment-table-with-book-btn'>
   <br>
-  <%= link_to "Book Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-success btn-sm', id: 'new-appointment-btn', remote: true %>
+  <%= link_to "Book Appointment", new_appointment_path(patient_id: @patient.id), class: 'btn btn-success btn-sm pull-right', id: 'new-appointment-btn', remote: true %>
 
   <% appointments = @patient.appointments %>
   <% if appointments.empty? %>

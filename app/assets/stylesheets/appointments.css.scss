@@ -1,10 +1,17 @@
-#new_appointment {
+#new_appointment, .edit_appointment {
   margin-top: 35px;
 }
 
 #new-appointment-btn {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+#new-appointment-btn-2 {
+  margin-bottom: 15px;
+  position: absolute;
+  margin-left: 200px;
+  margin-top: 0px;  
 }
 
 .inline_inputs > .control-group {
