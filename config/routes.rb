@@ -19,6 +19,7 @@ DocIsIn::Application.routes.draw do
   resources :prescriptions
   resources :medicines do
     post :search, on: :collection
+    get :cabinet, on: :collection
   end
 
   get '/dashboards/', to: 'dashboards#index'

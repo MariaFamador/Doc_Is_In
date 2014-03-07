@@ -52,10 +52,20 @@ class MedicinesController < ApplicationController
     end
   end
 
+  def cabinet
+    @medicines = Medicine.order(:name)
+    @symptoms = Symptom.all
+    @medicine = Medicine.new
+  end
+
   def index
     @medicines = Medicine.order(:name)
     @symptoms = Symptom.all
     @medicine = Medicine.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def search

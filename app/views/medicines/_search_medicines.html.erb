@@ -1,11 +1,14 @@
 
-<div class='search-medicines'>
-  <%= form_tag search_medicines_path, class: 'search_form', remote: true do %>
-    <%= text_field_tag :query, params[:query], placeholder: "Search medicine here", class: "form-control" %>
-    <%= submit_tag "Go", class: 'btn btn-default', id: 'medicine-go' %>
+<div class='medicine-panel'>
+  <div class='search-medicines'>
+    <%= form_tag search_medicines_path, class: 'search_form', remote: true do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search medicine here", class: "form-control" %>
+      <%= submit_tag "Go", class: 'btn btn-default', id: 'medicine-go' %>
+    <% end %>
+  </div>
 
-    <span class='or'>OR</span>
-
-    <%= link_to "Add New Medicine", new_medicine_path, class: 'btn btn-default', id: 'new-medicine-btn', remote: true %>
-  <% end %>
+  <div class='options pull-right'>
+    <%= link_to "Add New", new_medicine_path, class: 'btn btn-default btn-sm ', id: 'new-medicine-btn', remote: true %>
+    <%= link_to "Show all", medicines_path, remote: true, class: 'btn btn-default btn-sm', id: 'show-all-medicines' %> 
+  </div>
 </div>

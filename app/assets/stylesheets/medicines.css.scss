@@ -4,16 +4,23 @@
   margin-bottom: 40px;
 }
 
-#new-medicine-btn {
-  margin-left: 23px;
-  background-color: #D3D3D3;
+.options {
+  margin-top: -72px;
+  margin-right: 30px;
 }
 
-.or {
-  margin-left: 23px;
-  font-size: larger;
+#new-medicine-btn, #show-all-medicines {
+  background-color: #D3D3D3;
 }
 
 #medicine-go {
   background-color: #D3D3D3;
+}
+
+#medicine-form {
+  margin-top: -40px;
+}
+
+.thead-medicine-actions, .search-result > .table > tbody > tr > td.medicine-actions {
+  text-align: center;
 }

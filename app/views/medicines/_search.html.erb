@@ -1,13 +1,6 @@
 
 <div class='search-medicines'>
-  <%= form_tag search_medicines_path, class: 'search_form', remote: true do %>
-    <%= text_field_tag :query, params[:query], placeholder: "Search medicine here", class: "form-control" %>
-    <%= submit_tag "Go", class: 'btn btn-default', id: 'medicine-go' %>
-
-    <span class='or'>OR</span>
-
-    <%= link_to "Add New Medicine", new_medicine_path, class: 'btn btn-default', id: 'new-medicine-btn', remote: true %>
-  <% end %>
+  <%= render "medicines/search_medicines" %>
 </div>
 
 <% if @medicines.empty? %>
@@ -22,7 +15,7 @@
         <tr>
           <th>Medicine</th>
           <th>Associated Symptoms</th>
-          <th>Actions</th>
+          <th class='thead-medicine-actions'>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -34,9 +27,14 @@
               <li><%= symptom.name %></li>
             <% end %>
           </td>
-          <td>
-            <%= link_to "Edit", edit_medicine_path(medicine), class: 'btn btn-primary btn-sm', remote: true %>
-            <%= link_to "Delete", medicine_path(medicine), class: 'btn btn-danger btn-sm', method: :delete, remote: true, data: { confirm: "Are you sure?" } %>
+          <td class='medicine-actions'>
+            <%= link_to edit_medicine_path(medicine), class: 'btn btn-default btn-sm', remote: true do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+            <% end %>
+
+            <%= link_to medicine_path(medicine), class: 'btn btn-default btn-sm', method: :delete, remote: true, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
           </td>
         </tr>
         <% end %>
