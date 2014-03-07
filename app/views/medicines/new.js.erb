@@ -3,6 +3,7 @@ $('.search-result table').remove();
 $('.no-match').remove();
 $('#medicine-form').remove();
 $('#edit-medicines').append('<%= j render "medicines/new" %>');
+$('.notice').remove();
 
 $(document).ready(function() {
   $('.select2').select2({

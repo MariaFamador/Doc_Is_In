@@ -1,5 +1,5 @@
-$('#medicine-form').remove();
-$('#edit-medicines').append('<%= j render "medicines/search" %>');
+
+$('#edit-medicines').html('<%= j render "medicines/search" %>');
 
 <% if @status == "success" %>
   $('#right-column').prepend('<%= j render partial: "shared/flash_messages", locals: { notice: "Changes saved." } %>');

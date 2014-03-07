@@ -1,6 +1,4 @@
-$('#medicine-form').remove();
-$('.search-result').remove();
-$('.no-match').remove();
-$('#edit-medicines').append('<%= j render "medicines/search" %>');  
+$('.notice').remove();
+$('#edit-medicines').html('<%= j render "medicines/search" %>');  
 
 

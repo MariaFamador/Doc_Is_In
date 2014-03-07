@@ -1,12 +1,22 @@
-<% if @medicines.empty? %>
-  <div class='no-match'>No match found.</div>
-<% else %>
-  <div class='search-result'>
-    <% content_for :page_title do %>
-      <h2><i class="fa fa-medkit"></i>&nbspSearch Results</h2>
-    <% end %>
 
-    
+<div class='search-medicines'>
+  <%= form_tag search_medicines_path, class: 'search_form', remote: true do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search medicine here", class: "form-control" %>
+    <%= submit_tag "Go", class: 'btn btn-default', id: 'medicine-go' %>
+
+    <span class='or'>OR</span>
+
+    <%= link_to "Add New Medicine", new_medicine_path, class: 'btn btn-default', id: 'new-medicine-btn', remote: true %>
+  <% end %>
+</div>
+
+<% if @medicines.empty? %>
+
+  <div class='no-match'>No match found.</div>
+  
+<% else %>
+
+  <div class='search-result'>    
     <table class='table table-bordered'>
       <thead>
         <tr>
@@ -33,4 +43,5 @@
       </tbody>
     </table>
   </div>
+
 <% end %>
