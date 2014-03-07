@@ -65,16 +65,16 @@ class AppointmentsController < ApplicationController
   end
 
   def cancel
-    patient = @appointment.patient
+    @patient = @appointment.patient
     @appointment.kancel
-    redirect_to patient_path(patient, get_tab), notice: "Appointment cancelled."
+    redirect_to patient_path(@patient, get_tab), notice: "Appointment cancelled."
   end
 
   def destroy
     @patient = @appointment.patient
     @appointments = @patient.appointments
     respond_to do |format|
-    @appointment.destroy
+      @appointment.destroy
       format.html { redirect_to patient_path(patient, get_tab), notice: "Appointment deleted." }
       format.js
     end
