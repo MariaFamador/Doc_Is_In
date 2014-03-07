@@ -1,6 +1,6 @@
 
 <% if @patient.appointments.empty? %>
-  $('#patient-appointments').append('<h3 class="no-appointments">No appointments have been scheduled.</h3>');
+  $('#patient-appointments').append('<h3>No appointments have been scheduled.</h3>');
 <% else %>
   $('#appointment-form').replaceWith('<%= j render "appointments/edit" %>')
 <% end %>
