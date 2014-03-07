@@ -5,7 +5,7 @@ class MedicinesController < ApplicationController
   end
 
   def destroy
-    @medicines = Medicine.all
+    @medicines = Medicine.order(:name)
     @medicine = Medicine.find(params[:id])
     respond_to do |format|
       if @medicine.destroy
@@ -16,7 +16,7 @@ class MedicinesController < ApplicationController
   end
 
   def create
-    @medicines = Medicine.all
+    @medicines = Medicine.order(:name)
     @medicine = Medicine.new(medicine_params)
     respond_to do |format|
       if @medicine.save
@@ -53,7 +53,7 @@ class MedicinesController < ApplicationController
   end
 
   def index
-    @medicines = Medicine.all
+    @medicines = Medicine.order(:name)
     @symptoms = Symptom.all
     @medicine = Medicine.new
   end
