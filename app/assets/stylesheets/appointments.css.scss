@@ -5,8 +5,13 @@
 }
 
 .new-appointment-link {
-  margin-left: 70px;
-  margin-top: -3px;
+  position: absolute;
+  margin-left: 79px;
+  margin-top: 2px;
+}
+
+a.btn.btn-default.btn-sm.new-appointment-link {
+  font-size: 13px;
 }
 
 .inline_inputs > .control-group {
