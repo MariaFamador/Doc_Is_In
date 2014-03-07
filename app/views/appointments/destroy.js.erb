@@ -1,0 +1,7 @@
+
+<% if @appointments.empty? %>
+  $('.patient-appointments-table').remove();
+  $('#patient-appointments').append('<h3>No appointments have been scheduled.</h3>');
+<% else %>
+  $('a[href="<%= appointment_path(@appointment) %>"]').closest('tr.delete-data').remove();
+<% end %>

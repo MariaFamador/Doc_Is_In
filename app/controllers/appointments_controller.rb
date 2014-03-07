@@ -71,9 +71,13 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    patient = @appointment.patient
+    @patient = @appointment.patient
+    @appointments = @patient.appointments
+    respond_to do |format|
     @appointment.destroy
-    redirect_to patient_path(patient, get_tab), notice: "Appointment deleted."
+      format.html { redirect_to patient_path(patient, get_tab), notice: "Appointment deleted." }
+      format.js
+    end
   end
 
   private
