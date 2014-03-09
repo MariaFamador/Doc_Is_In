@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <html>
   <head>
     <title>DOC IS IN</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
       <%= render 'layouts/navbar_top' %>
       <div class="row">
         <div class="col-md-3" id='dashboard-panel'>
-          <%= render 'layouts/dashboard_panel' %> 
+          <%= render 'layouts/dashboard_panel' %>
         </div>
         <div class="col-md-9" id='right-column'>
           <%= render 'shared/flash_messages' %>

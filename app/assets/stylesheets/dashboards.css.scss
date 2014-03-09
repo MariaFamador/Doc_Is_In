@@ -1,10 +1,8 @@
-/* welcome page */
-
+@import "variables";
 
 .center-block {
   width: 400px;
 }
-
 
 /* left-column */
 
@@ -57,7 +55,7 @@
   top: 67px;
   bottom: 15px;
   padding-right: 35px;
-  overflow-y: auto;  
+  overflow-y: auto;
 }
 
 #patient-go {
