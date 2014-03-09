@@ -33,6 +33,10 @@ html {
 
 #navbar-top {
   border-radius: 0;
+  background-image: linear-gradient(rgba(0, 206, 237, 0.97), rgba(0, 200, 237, 0.97));
+  a {
+    color: white;
+  }
 }
 
 tr > th {
