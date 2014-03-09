@@ -39,6 +39,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
     childprocess (0.4.0)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
@@ -67,6 +69,9 @@ GEM
     elasticsearch-transport (0.4.7)
       faraday
       multi_json
+    em-websocket (0.5.0)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.5.3)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
@@ -79,9 +84,26 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffaker (1.23.0)
     ffi (1.9.3)
+    formatador (0.2.4)
     fullcalendar-rails (1.6.4.0)
+    guard (2.2.5)
+      formatador (>= 0.2.4)
+      listen (~> 2.1)
+      lumberjack (~> 1.0)
+      pry (>= 0.9.12)
+      thor (>= 0.18.1)
+    guard-bundler (2.0.0)
+      bundler (~> 1.0)
+      guard (~> 2.2)
+    guard-livereload (2.1.0)
+      em-websocket (~> 0.5)
+      guard (~> 2.0)
+      multi_json (~> 1.8)
+    guard-rails (0.4.7)
+      guard (>= 0.2.2)
     hashr (0.0.22)
     hike (1.2.3)
+    http_parser.rb (0.5.3)
     i18n (0.6.9)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
@@ -96,6 +118,11 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    listen (2.4.0)
+      celluloid (>= 0.15.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+    lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -116,6 +143,11 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -138,6 +170,9 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.1)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.3)
+      ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     rest-client (1.6.7)
@@ -178,6 +213,9 @@ GEM
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
     slop (3.4.7)
+    spring (1.0.0)
+    spring-commands-rspec (1.0.1)
+      spring (>= 0.9.1)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -196,6 +234,7 @@ GEM
       atomic
     tilt (1.4.1)
     time_splitter (1.0.0)
+    timers (1.1.0)
     tire (0.6.2)
       activemodel (>= 3.0)
       activesupport
@@ -235,6 +274,9 @@ DEPENDENCIES
   factory_girl_rails
   ffaker
   fullcalendar-rails
+  guard-bundler
+  guard-livereload
+  guard-rails
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)
   jquery-turbolinks
@@ -243,6 +285,8 @@ DEPENDENCIES
   pg
   pickadate-rails
   pry
+  pry-rails
+  pry-remote
   rails (= 4.0.2)
   rails_12factor (= 0.0.2)
   rspec-rails (= 2.13.1)
@@ -253,6 +297,8 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   simple_form
+  spring
+  spring-commands-rspec
   thin
   time_splitter
   turbolinks

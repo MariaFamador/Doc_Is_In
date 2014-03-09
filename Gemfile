@@ -22,6 +22,17 @@ gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '1.0.2'
 
+group :development do
+  gem 'guard-rails'
+  gem 'guard-livereload'
+  gem 'guard-bundler'
+  gem 'spring'
+  gem 'spring-commands-rspec'
+
+  gem 'pry-remote'
+  gem 'pry-rails'
+end
+
 group :development, :test do
   gem 'pry'
   gem 'ffaker'
