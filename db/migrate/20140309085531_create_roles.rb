@@ -4,8 +4,12 @@ class CreateRoles < ActiveRecord::Migration
       t.string :name
       t.references :user, index: true
       t.references :account, index: true
-      
+
       t.timestamps
     end
+  end
+
+  def change
+    remove_column :users, :role, :string
   end
 end
