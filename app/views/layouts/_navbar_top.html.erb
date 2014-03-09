@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse doc-navbar" role="navigation">
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#settings-collapse">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#fullnav-collapse">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -11,28 +11,31 @@
     <% end %>
   </div>
 
-  <div class="collapse navbar-collapse" id="settings-collapse">
+  <div class="collapse navbar-collapse" id="fullnav-collapse">
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav">
+        <%= activating_nav 'DASHBOARD', dashboards_path %>
+        <%= activating_nav 'APPOINTMENTS', appointments_path %>
+        <%= activating_nav 'PATIENTS', patients_path %>
+        <%= activating_nav 'TASKS', '#' %>
+        <%= activating_nav 'ASSETS', '#' %>
+      </ul>
+    <% end %>
 
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %>
-          </li>
-          <% else %>
-          <li>
-            <%= link_to 'LOGIN', new_user_session_path %>
-          </li>
-        <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i>  SETTINGS <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
             <li><%= link_to "Security Settings", edit_user_registration_path(current_user) %></li>
+            <li class='divider'></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
+      <% else %>
+        <li><%= link_to 'LOGIN', new_user_session_path %></li>
       <% end %>
     </ul>
-
   </div>
 </nav>

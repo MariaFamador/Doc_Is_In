@@ -22,28 +22,10 @@ html {
   border-top: none;
 }
 
-tr > th {
-  font-size: 15px;
-}
-
-label {
-  margin-top: 17px;
-  margin-bottom: 2px;
-}
-
-label .radio, span .radio,.radio input[type="radio"] {
-  border: none;
-  width: 20px;
-}
-
-#signin_form, #signup_form {
-  margin: 75px 341px 50px 115px;
-}
-
 .help-inline {
   color: red;
 }
 
-#patient-prescription-show {
-  margin-top: 20px;
+.center-block {
+  width: 400px;
 }

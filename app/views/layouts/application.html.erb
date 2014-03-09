@@ -9,18 +9,11 @@
   </head>
 
   <body style>
-    <div id='content'>
-      <%= render 'layouts/navbar_top' %>
-      <div class="row">
-        <div class="col-md-3" id='dashboard-panel'>
-          <%= render 'layouts/dashboard_panel' %>
-        </div>
-        <div class="col-md-9" id='right-column'>
-          <%= render 'shared/flash_messages' %>
-          <%= content_for(:page_title) %>
-          <%= yield %>
-        </div>
-      </div>
+    <%= render 'layouts/navbar_top' %>
+    <div class="container">
+      <%= render 'shared/flash_messages' %>
+      <%= content_for(:page_title) %>
+      <%= yield %>
     </div>
   </body>
 </html>

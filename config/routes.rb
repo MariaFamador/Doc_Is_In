@@ -22,6 +22,6 @@ DocIsIn::Application.routes.draw do
     get :cabinet, on: :collection
   end
 
-  get '/dashboards/', to: 'dashboards#index'
-  get '/calendar/', to: 'appointments#calendar'
+  get 'dashboards/', to: 'dashboards#index'
+  get 'calendar/', to: 'appointments#calendar'
 end
