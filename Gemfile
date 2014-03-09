@@ -13,8 +13,8 @@ gem 'time_splitter'
 gem 'select2-rails'
 gem 'jquery-turbolinks'
 
-gem 'bootstrap-sass', '3.0.3.0'
 gem 'sass-rails', '>=3.2'
+gem 'bootstrap-sass', '3.1.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
@@ -24,11 +24,11 @@ gem 'jbuilder', '1.0.2'
 
 group :development do
   gem 'guard-rails'
-  gem 'guard-livereload'
   gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
   gem 'spring'
   gem 'spring-commands-rspec'
-
   gem 'pry-remote'
   gem 'pry-rails'
 end
