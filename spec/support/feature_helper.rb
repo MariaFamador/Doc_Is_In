@@ -3,9 +3,9 @@ module FeatureHelper
   def sign_in(user)
     visit new_user_session_path
     expect(page).to have_content('Sign in')
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password'
-    click_button 'Sign in'
+    fill_in 'EMAIL', with: user.email
+    fill_in 'PASSWORD', with: 'password'
+    click_button 'SIGN IN'
 
     expect(page).to have_content('Welcome to the Home Page!')
   end

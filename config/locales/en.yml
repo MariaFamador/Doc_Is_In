@@ -21,3 +21,20 @@
 
 en:
   hello: "Hello world"
+
+  helpers:
+    submit:
+      user:
+        create: "REGISTER"
+
+  simple_form:
+    labels:
+      user:
+        accounts:
+          name: "ACCOUNT NAME"
+          type: "PRACTICE TYPE"
+        email: "EMAIL"
+        first_name: "FIRST NAME"
+        last_name: "LAST NAME"
+        password: "PASSWORD"
+        password_confirmation: "PASSWORD CONFIRMATION"

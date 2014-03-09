@@ -1,8 +1,7 @@
 class Account < ActiveRecord::Base
-  has_many :roles
+  self.inheritance_column = nil
+  has_many :roles, inverse_of: :account
   has_many :users, through: :roles
 
-  accepts_nested_attributes_for :user
-
-  validate :type, :name, presence: true
+  validates :type, :name, presence: true
 end

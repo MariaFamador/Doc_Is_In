@@ -7,9 +7,7 @@ class CreateRoles < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
 
-  def change
     remove_column :users, :role, :string
   end
 end

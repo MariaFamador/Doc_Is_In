@@ -115,6 +115,17 @@ ActiveRecord::Schema.define(version: 20140309102209) do
   add_index "prescriptions", ["patient_id"], name: "index_prescriptions_on_patient_id", using: :btree
   add_index "prescriptions", ["user_id"], name: "index_prescriptions_on_user_id", using: :btree
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["account_id"], name: "index_roles_on_account_id", using: :btree
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id", using: :btree
+
   create_table "symptoms", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
