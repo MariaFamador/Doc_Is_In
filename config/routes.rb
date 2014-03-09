@@ -6,6 +6,7 @@ DocIsIn::Application.routes.draw do
   end
 
   resources :users
+  resources :accounts
 
   resources :patients do
     post :search, on: :collection

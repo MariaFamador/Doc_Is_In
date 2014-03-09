@@ -12,7 +12,7 @@ feature "Managing Medicines" do
 
     scenario "can create medicine" do
       visit medicines_path
-      click_on "Add New Medicine"
+      click_on "Add New"
       fill_in "Medicine", with: "Test"
       select chills.name, from: "Symptoms"
       click_on "Save"
@@ -23,9 +23,8 @@ feature "Managing Medicines" do
 
     scenario "can edit medicine", js: true do
       visit medicines_path
-      fill_in "Search medicine here", with: ""
-      click_on "Go"
-      click_on "Edit"
+      click_on "Show all"
+      find('.edit-medicine-icon', match: :first).click
 
       fill_in "Medicine", with: "Testing Edit"
       click_on "Save"
@@ -38,11 +37,10 @@ feature "Managing Medicines" do
       neozep = FactoryGirl.create(:medicine, name: "Neozep") 
 
       visit medicines_path
-      fill_in "Search medicine here", with: ""
-      click_on "Go"
+      click_on "Show all"
 
       expect(Medicine.count).to eq 2
-      find(:link, 'Delete', match: :first).click
+      find('.delete-medicine', match: :first).click
       page.driver.browser.switch_to.alert.accept
 
       expect(Medicine.count).to eq 1

@@ -17,4 +17,8 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
+
+  config.before :each do
+    Patient.reindex
+  end
 end
