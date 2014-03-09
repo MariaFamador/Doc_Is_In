@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :patients
   has_many :appointments, dependent: :destroy
   has_many :prescriptions, dependent: :destroy
+  has_many :roles
+  has_many :accounts, through: :roles
 
   accepts_nested_attributes_for :appointments, allow_destroy: true
 
