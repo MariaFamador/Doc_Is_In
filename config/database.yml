@@ -1,21 +1,26 @@
-defaults: &defaults
+development:
   adapter: postgresql
-  encoding: utf8
+  database: docisin_development
   pool: 5
   host: localhost
-
-development:
-  <<: *defaults
-  database: docisin_development
+  port: 5432
+  username: mariafamador
+  password: paradi5e
 
 test:
-  <<: *defaults
+  adapter: postgresql
   database: docisin_test
-
-staging:
-  <<: *defaults
-  database: docisin_staging
+  pool: 5
+  host: localhost
+  port: 5432
+  username: mariafamador
+  password: paradi5e
 
 production:
-  <<: *defaults
+  adapter: postgresql
   database: docisin_production
+  pool: 5
+  host: localhost
+  port: 5432
+  username: mariafamador
+  password: paradi5e  
