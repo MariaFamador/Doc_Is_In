@@ -1,6 +1,12 @@
+<% content_for :page_title do %>
+  <div> 
+    <h2>Patient Records</h2><hr>
+  </div>
+<% end %>
+
 <div>
   <% if current_user.patients.empty? %>
-    <h5>There are no patient records to date</h5>
+    <h3>There are no patient records to date</h3>
 
   <% else %>
     <div class='patient-index'>
