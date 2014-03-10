@@ -29,3 +29,7 @@ html {
 .center-block {
   width: 400px;
 }
+
+td.content-link > a, a {
+  color: gray;
+}
