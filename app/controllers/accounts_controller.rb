@@ -1,14 +1,14 @@
 class AccountsController < ApplicationController
-  
+
   def new
-    @account = Account.new    
+    @account = Account.new
     @account.users.build
   end
 
   def create
     @account = Account.new(account_params)
     if @account.save
-      redirect_to dashboards_path, notice: "Account created."
+      redirect_to account_dashboards_path, notice: "Account created."
     else
       render 'new'
     end
@@ -26,8 +26,6 @@ class AccountsController < ApplicationController
         :first_name,
         :last_name,
         :password,
-        :password_confirmation
-      ]
-    )
+        :password_confirmation] )
   end
 end

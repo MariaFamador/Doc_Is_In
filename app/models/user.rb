@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
             if: -> { new_record? }
   validates :password, :password_confirmation, presence: true,
     length: { minimum: 8 }, if: -> { new_record? }
+  validates :accounts, presence: true
 
   attr_accessor :appointments_attributes
 
