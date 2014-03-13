@@ -5,5 +5,6 @@ FactoryGirl.define do
     email { Faker::Internet.email.downcase }
     password 'password'
     password_confirmation 'password'
+    accounts { [build(:account)] }
   end
 end

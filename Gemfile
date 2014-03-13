@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.1'
 
 gem 'rails', '4.0.2'
 gem 'pg'
@@ -41,13 +41,13 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec-rails', '2.13.1'
+  gem 'capybara', '2.1.0'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'capybara', '2.1.0'
-  gem 'rspec-rails', '2.13.1'
 end
 
 group :doc do
