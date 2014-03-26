@@ -1,0 +1,42 @@
+// Colors
+$brand-primary: rgba(0, 200, 237, 0.97);
+$brand-primary-dark: darken($brand-primary, 15%);
+$brand-primary-light: lighten($brand-primary, 15%);
+$brand-secondary: rgba(0, 206, 237, 0.97);
+$text-color: rgb(110, 110, 110);
+$link-color: white;
+$link-hover-color: white;
+
+// Typography
+$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-serif: ff-tisa-web-pro, Georgia, Times, serif;
+
+// Components
+$component-active-color: white;
+$component-active-bg: $brand-primary-dark;
+$border-radius-base: 0;
+$border-radius-large: 2px;
+$border-radius-small: 1px;
+
+// Dropdown
+$dropdown-bg: $brand-primary;
+$dropdown-header-color: white;
+$dropdown-link-hover-color: white;
+$dropdown-link-hover-bg: $brand-primary-dark;
+$dropdown-link-color: white;
+$dropdown-link-active-color: white;
+$dropdown-link-active-bg: $brand-primary-dark;
+
+// Navbar
+$navbar-inverse-brand-color: white;
+$navbar-inverse-brand-hover-bg: $brand-primary-dark;
+$navbar-inverse-bg: $brand-primary;
+$navbar-inverse-link-color: white;
+$navbar-inverse-link-hover-bg: $brand-primary-dark;
+$navbar-inverse-link-active-color: white;
+$navbar-inverse-link-active-bg: $brand-primary-dark;
+$navbar-inverse-toggle-border-color: white;
+$navbar-inverse-toggle-hover-bg: $brand-primary-dark;
+$navbar-height: 50px;
+
+@import "bootstrap/variables";

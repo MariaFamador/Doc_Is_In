@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.1'
 
 gem 'rails', '4.0.2'
 gem 'pg'
@@ -13,14 +13,25 @@ gem 'time_splitter'
 gem 'select2-rails'
 gem 'jquery-turbolinks'
 
-gem 'bootstrap-sass', '3.0.3.0'
 gem 'sass-rails', '>=3.2'
+gem 'bootstrap-sass', '3.1.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '1.0.2'
+
+group :development do
+  gem 'guard-rails'
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'pry-remote'
+  gem 'pry-rails'
+end
 
 group :development, :test do
   gem 'pry'
@@ -30,13 +41,13 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec-rails', '2.13.1'
+  gem 'capybara', '2.1.0'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'capybara', '2.1.0'
-  gem 'rspec-rails', '2.13.1'
 end
 
 group :doc do

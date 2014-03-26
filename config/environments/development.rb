@@ -31,4 +31,6 @@ DocIsIn::Application.configure do
   #added after install devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  # Add Rack::LiveReload to enable LiveReload plugin.
+  config.middleware.use Rack::LiveReload
 end

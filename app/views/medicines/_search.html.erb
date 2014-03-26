@@ -28,11 +28,11 @@
             <% end %>
           </td>
           <td class='medicine-actions'>
-            <%= link_to edit_medicine_path(medicine), class: 'btn btn-default btn-sm', remote: true do %>
+            <%= link_to edit_medicine_path(medicine), class: 'btn btn-default btn-sm edit-medicine-icon', remote: true do %>
               <i class="glyphicon glyphicon-pencil"></i>
             <% end %>
 
-            <%= link_to medicine_path(medicine), class: 'btn btn-default btn-sm', method: :delete, remote: true, data: { confirm: "Are you sure?" } do %>
+            <%= link_to medicine_path(medicine), class: 'btn btn-default btn-sm delete-medicine', method: :delete, remote: true, data: { confirm: "Are you sure?" } do %>
               <i class="fa fa-trash-o"></i>
             <% end %>
           </td>

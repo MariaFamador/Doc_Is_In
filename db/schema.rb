@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227115951) do
+ActiveRecord::Schema.define(version: 20140309102209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "appointments", force: true do |t|
     t.datetime "created_at"
@@ -108,6 +116,17 @@ ActiveRecord::Schema.define(version: 20140227115951) do
   add_index "prescriptions", ["patient_id"], name: "index_prescriptions_on_patient_id", using: :btree
   add_index "prescriptions", ["user_id"], name: "index_prescriptions_on_user_id", using: :btree
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["account_id"], name: "index_roles_on_account_id", using: :btree
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id", using: :btree
+
   create_table "symptoms", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -122,7 +141,6 @@ ActiveRecord::Schema.define(version: 20140227115951) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
     t.string   "password_digest"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

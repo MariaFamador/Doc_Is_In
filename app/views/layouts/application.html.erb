@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <html>
   <head>
     <title>DOC IS IN</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
 
-  <body style>
-    <div id='content'>
-      <%= render 'layouts/navbar_top' %>
-      <div class="row">
-        <div class="col-md-3" id='dashboard-panel'>
-          <%= render 'layouts/dashboard_panel' %> 
-        </div>
-        <div class="col-md-9" id='right-column'>
-          <%= render 'shared/flash_messages' %>
-          <%= content_for(:page_title) %>
-          <%= yield %>
-        </div>
+  <body>
+    <nav class="navbar navbar-inverse doc-navbar" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#fullnav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <% home_path = user_signed_in? ? account_dashboards_path(current_account) : root_path %>
+        <%= link_to home_path, class: 'navbar-brand'  do %>
+          <i class="fa fa-stethoscope"></i> DOC IS IN
+        <% end %>
       </div>
+
+      <div class="collapse navbar-collapse" id="fullnav-collapse">
+        <% if user_signed_in? %>
+          <ul class="nav navbar-nav">
+            <%= activating_nav 'DASHBOARD', account_dashboards_path(current_account) %>
+            <%= activating_nav 'APPOINTMENTS', account_appointments_path(current_account) %>
+            <%= activating_nav 'PATIENTS', account_patients_path(current_account) %>
+            <%= activating_nav 'TASKS', '#' %>
+            <%= activating_nav 'ASSETS', '#' %>
+          </ul>
+        <% end %>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i>  SETTINGS <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Account", edit_account_path(current_account) %></li>
+                <li><%= link_to "Edit Profile", edit_account_user_path(current_account, current_user) %></li>
+                <li><%= link_to "Security Settings", edit_user_registration_path(current_account, current_user) %></li>
+                <li class='divider'></li>
+                <li><%= link_to 'Logout', destroy_user_session_path(current_account), method: :delete %></li>
+              </ul>
+            </li>
+          <% else %>
+            <%= activating_nav 'LOGIN', new_user_session_path %>
+            <%= activating_nav 'SIGN UP', new_user_registration_path %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= render 'shared/flash_messages' %>
+      <%= content_for(:page_title) %>
+      <%= yield %>
     </div>
   </body>
 </html>
-

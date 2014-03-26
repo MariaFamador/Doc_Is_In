@@ -4,7 +4,7 @@
 #= require jquery.ui.all
 #= require bootstrap
 #= require pickadate/picker
-#= require pickadate/picker.date 
+#= require pickadate/picker.date
 #= require pickadate/picker.time
 #= require fullcalendar
 #= require select2
@@ -32,7 +32,7 @@ ready = ->
     maxTime: 18
 
     eventClick: (event) ->
-      if (event.url) 
+      if (event.url)
         window.open(event.url, _self)
 
   $('.datepicker').pickadate
@@ -58,7 +58,7 @@ ready = ->
       closeOnSelect: false
 
 
-      
+
   $('.select2').select2
       placeholder: "Please select..."
       closeOnSelect: false
